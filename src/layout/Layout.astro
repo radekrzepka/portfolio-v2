@@ -1,4 +1,7 @@
 ---
+import Analytics from "@vercel/analytics/astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
+
 import Footer from "./../components/Footer.astro";
 import Navigation from "./../components/Navigation.astro";
 
@@ -6,24 +9,57 @@ import "./../styles/global.css";
 
 interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  description = "Full-stack developer specjalizujący się w Next.js, React, TypeScript, AWS i Nest.js.",
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="pl" class="h-full">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Radosław Rzepka" />
+    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <Analytics />
+    <SpeedInsights />
+
+    <script is:inline>
+      const getThemePreference = () => {
+        if (
+          typeof localStorage !== "undefined" &&
+          localStorage.getItem("theme")
+        ) {
+          return localStorage.getItem("theme");
+        }
+        return window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+      };
+      const isDark = getThemePreference() === "dark";
+      document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+
+      if (typeof localStorage !== "undefined") {
+        const observer = new MutationObserver(() => {
+          const isDark = document.documentElement.classList.contains("dark");
+          localStorage.setItem("theme", isDark ? "dark" : "light");
+        });
+        observer.observe(document.documentElement, {
+          attributes: true,
+          attributeFilter: ["class"],
+        });
+      }
+    </script>
   </head>
-  <body>
+  <body class="flex flex-col min-h-screen">
     <Navigation />
-    <main>
+    <main class="flex-grow">
       <slot />
     </main>
     <Footer />

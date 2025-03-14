@@ -4,30 +4,9 @@ import Hero from "@/modules/Hero.astro";
 import Layout from "./../layout/Layout.astro";
 ---
 
-<script is:inline>
-  const getThemePreference = () => {
-    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-      return localStorage.getItem("theme");
-    }
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
-  };
-  const isDark = getThemePreference() === "dark";
-  document.documentElement.classList[isDark ? "add" : "remove"]("dark");
-
-  if (typeof localStorage !== "undefined") {
-    const observer = new MutationObserver(() => {
-      const isDark = document.documentElement.classList.contains("dark");
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-    });
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-  }
-</script>
-
-<Layout title="Radosław Rzepka">
+<Layout
+  title="Radosław Rzepka | Full-stack Developer"
+  description="Full-stack developer specjalizujący się w Next.js, React, TypeScript, AWS i Nest.js. Tworzę wyjątkowe aplikacje internetowe łączące nowoczesny design z zaawansowaną technologią."
+>
   <Hero />
 </Layout>

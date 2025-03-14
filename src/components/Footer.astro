@@ -1,7 +1,27 @@
 ---
+import { FEATURES } from "../config/features";
 import { navLinks, socialLinks } from "../data/navigation";
 
 const currentYear = new Date().getFullYear();
+
+const latestPosts = FEATURES.BLOG_ENABLED
+  ? [
+      {
+        title: "Jak zacząłem przygodę z Next.js",
+        href: "/blog/nextjs-journey",
+      },
+      {
+        title: "TypeScript - najlepsze praktyki",
+        href: "/blog/typescript-best-practices",
+      },
+      { title: "AWS dla developerów frontend", href: "/blog/aws-for-frontend" },
+    ]
+  : [];
+const certifications = [
+  "AWS Certified Developer",
+  "Microsoft Certified: Azure Developer Associate",
+  "Google Professional Cloud Developer",
+];
 ---
 
 <footer class="border-t bg-muted/30">
@@ -60,6 +80,41 @@ const currentYear = new Date().getFullYear();
           Napisz do mnie
         </a>
       </div>
+
+      {
+        FEATURES.BLOG_ENABLED ? (
+          <div class="space-y-4">
+            <h3 class="font-bold text-lg">Ostatnie wpisy</h3>
+            <ul class="space-y-2 text-sm">
+              {latestPosts.map(({ title, href }) => (
+                <li>
+                  <a
+                    href={href}
+                    class="text-muted-foreground hover:text-foreground transition-colors hover:underline"
+                  >
+                    {title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <a
+              href="/blog"
+              class="inline-block text-sm font-medium text-primary hover:underline"
+            >
+              Wszystkie wpisy
+            </a>
+          </div>
+        ) : (
+          <div class="space-y-4">
+            <h3 class="font-bold text-lg">Certyfikaty</h3>
+            <ul class="space-y-2 text-sm">
+              {certifications.map((cert) => (
+                <li class="text-muted-foreground">{cert}</li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
     </div>
 
     <div class="mt-12 pt-6 border-t text-center text-sm text-muted-foreground">
