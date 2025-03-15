@@ -31,6 +31,7 @@ import {
   SiReact,
   SiSass,
   SiScikitlearn,
+  SiShadcnui,
   SiStorybook,
   SiStrapi,
   SiStripe,
@@ -123,6 +124,13 @@ export const skills: Skill[] = [
     icon: SiTailwindcss,
     color: "#06B6D4",
     isFeatured: true,
+  },
+  {
+    name: "shadcn/ui",
+    category: SkillCategory.FRONTEND,
+    icon: SiShadcnui,
+    color: "#000000",
+    hideInSkills: true,
   },
   {
     name: "Figma",

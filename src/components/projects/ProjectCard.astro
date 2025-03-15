@@ -1,0 +1,19 @@
+---
+import type { Project } from "@/data/projects";
+
+import { ProjectCardComponent } from "./ProjectCardComponent";
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<div
+  class="project-card group relative overflow-hidden rounded-lg border border-border bg-card p-2 transition-all hover:border-primary"
+  data-project-id={project.id}
+  data-categories={project.categories.join(",")}
+>
+  <ProjectCardComponent project={project} client:load />
+</div>

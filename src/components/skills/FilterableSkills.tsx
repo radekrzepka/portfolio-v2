@@ -24,7 +24,7 @@ export function FilterableSkills() {
               className="flex transform flex-col items-center justify-center gap-3 transition-all duration-300 hover:scale-110"
             >
               <div
-                className={`bg-muted group rounded-xl p-4 transition-all duration-300 hover:-translate-y-1 dark:bg-zinc-900`}
+                className={`bg-background group rounded-xl p-4 transition-all duration-300 hover:-translate-y-1 dark:bg-zinc-900`}
                 style={{ boxShadow: `0 0 0 rgba(0, 0, 0, 0)` }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.boxShadow = `0 0 20px ${skill.color}33`;

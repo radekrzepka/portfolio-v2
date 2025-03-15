@@ -1,5 +1,6 @@
 ---
 import PageContainer from "@/layout/PageContainer.astro";
+import ProjectsSection from "@/modules/Projects.astro";
 
 import Layout from "../layout/Layout.astro";
 ---
@@ -8,8 +9,7 @@ import Layout from "../layout/Layout.astro";
   title="Projekty | Radosław Rzepka"
   description="Przegląd moich projektów jako full-stack developer. Zobacz aplikacje i strony internetowe, które stworzyłem przy użyciu Next.js, React, TypeScript i innych technologii."
 >
-  <PageContainer
-    title="Projekty"
-    description="Strona w przygotowaniu. Wkrótce pojawią się tutaj moje projekty."
-  />
+  <PageContainer title="Projekty">
+    <ProjectsSection />
+  </PageContainer>
 </Layout>
