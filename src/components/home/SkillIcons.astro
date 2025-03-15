@@ -3,7 +3,9 @@ import type { Skill } from "@/data/skills";
 
 import { skills } from "@/data/skills";
 
-const featuredSkills: Skill[] = skills.filter((skill) => skill.isFeatured);
+const featuredSkills: Skill[] = skills.filter(
+  (skill) => skill.isFeatured && !skill.hideInSkills,
+);
 ---
 
 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">

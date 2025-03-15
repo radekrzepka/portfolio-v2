@@ -1,4 +1,5 @@
 import type { IconType } from "react-icons";
+import { FaFileExcel } from "react-icons/fa";
 import {
   SiAmazonwebservices,
   SiAstro,
@@ -40,6 +41,7 @@ import {
   SiTypescript,
   SiVercel,
   SiVitest,
+  SiWordpress,
 } from "react-icons/si";
 
 export enum SkillCategory {
@@ -60,6 +62,7 @@ export interface Skill {
   icon: IconType;
   color: string;
   isFeatured?: boolean;
+  hideInSkills?: boolean;
 }
 
 export const skills: Skill[] = [
@@ -318,5 +321,19 @@ export const skills: Skill[] = [
     category: SkillCategory.CURRENTLY_LEARNING,
     icon: SiGo,
     color: "#00ADD8",
+  },
+  {
+    name: "WordPress",
+    category: SkillCategory.TOOLS,
+    icon: SiWordpress,
+    color: "#21759B",
+    hideInSkills: true,
+  },
+  {
+    name: "Excel",
+    category: SkillCategory.TOOLS,
+    icon: FaFileExcel,
+    color: "#217346",
+    hideInSkills: true,
   },
 ];

@@ -1,15 +1,16 @@
 ---
+import { ExperienceTimeline } from "@/components/experience";
+import Layout from "@/layout/Layout.astro";
 import PageContainer from "@/layout/PageContainer.astro";
-
-import Layout from "../layout/Layout.astro";
 ---
 
 <Layout
   title="Doświadczenie | Radosław Rzepka"
   description="Moje doświadczenie zawodowe jako full-stack developer. Poznaj projekty, nad którymi pracowałem i technologie, których używam."
 >
-  <PageContainer
-    title="Doświadczenie"
-    description="Strona w przygotowaniu. Wkrótce pojawi się tutaj moje doświadczenie zawodowe."
-  />
+  <PageContainer title="Doświadczenie">
+    <div class="max-w-3xl mx-auto">
+      <ExperienceTimeline client:load />
+    </div>
+  </PageContainer>
 </Layout>

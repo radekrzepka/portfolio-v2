@@ -15,7 +15,9 @@ const categoryOrder = [
 
 const skillCategories = categoryOrder.map((category) => {
   const { name, icon } = categoryConfig[category];
-  const filteredSkills = skills.filter((skill) => skill.category === category);
+  const filteredSkills = skills.filter(
+    (skill) => skill.category === category && !skill.hideInSkills,
+  );
 
   return {
     name,

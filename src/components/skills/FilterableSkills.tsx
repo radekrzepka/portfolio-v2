@@ -7,7 +7,8 @@ export function FilterableSkills() {
 
   const filteredSkills = skills.filter(
     (skill) =>
-      activeFilter === SkillCategory.ALL || skill.category === activeFilter,
+      !skill.hideInSkills &&
+      (activeFilter === SkillCategory.ALL || skill.category === activeFilter),
   );
 
   return (
@@ -23,7 +24,7 @@ export function FilterableSkills() {
               className="flex transform flex-col items-center justify-center gap-3 transition-all duration-300 hover:scale-110"
             >
               <div
-                className={`rounded-xl p-4 transition-all duration-300 hover:-translate-y-1 bg-muted dark:bg-zinc-900 group`}
+                className={`bg-muted group rounded-xl p-4 transition-all duration-300 hover:-translate-y-1 dark:bg-zinc-900`}
                 style={{ boxShadow: `0 0 0 rgba(0, 0, 0, 0)` }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.boxShadow = `0 0 20px ${skill.color}33`;
@@ -45,4 +46,4 @@ export function FilterableSkills() {
       </div>
     </div>
   );
-} 
+}
