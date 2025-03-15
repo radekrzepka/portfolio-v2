@@ -1,4 +1,8 @@
 ---
+import { Certifications } from "@/components/certifications";
+import { FilterableSkills } from "@/components/skills";
+import PageContainer from "@/layout/PageContainer.astro";
+
 import Layout from "../layout/Layout.astro";
 ---
 
@@ -6,12 +10,10 @@ import Layout from "../layout/Layout.astro";
   title="Umiejętności | Radosław Rzepka"
   description="Moje umiejętności techniczne jako full-stack developer. Specjalizuję się w Next.js, React, TypeScript, AWS i Nest.js."
 >
-  <div class="container mx-auto px-4 py-24 md:py-32">
-    <h1 class="text-4xl font-bold mb-8">Umiejętności</h1>
-    <p class="text-muted-foreground mb-12">
-      Strona w przygotowaniu. Wkrótce pojawią się tutaj moje umiejętności
-      techniczne.
-    </p>
-  </div>
+  <PageContainer title="Umiejętności">
+    <div class="flex flex-col gap-32">
+      <FilterableSkills client:load />
+      <Certifications client:load />
+    </div>
+  </PageContainer>
 </Layout>
-

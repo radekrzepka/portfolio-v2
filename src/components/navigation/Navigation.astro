@@ -1,8 +1,11 @@
 ---
 import { Menu, X } from "lucide-react";
 
-import { navLinks } from "../data/navigation";
-import { ThemeToggle } from "./ThemeToggle.tsx";
+import { navLinks } from "@/data/navigation";
+
+import { ThemeToggle } from "./ThemeToggle";
+
+const currentPath = Astro.url.pathname;
 ---
 
 <header
@@ -16,14 +19,22 @@ import { ThemeToggle } from "./ThemeToggle.tsx";
 
     <nav class="hidden md:flex items-center gap-6">
       {
-        navLinks.map((item) => (
-          <a
-            href={item.href}
-            class="text-sm font-medium transition-colors hover:text-primary relative py-2"
-          >
-            {item.label}
-          </a>
-        ))
+        navLinks.map((item) => {
+          const isActive =
+            currentPath === item.href ||
+            (item.href !== "/" && currentPath.startsWith(item.href));
+
+          return (
+            <a
+              href={item.href}
+              class="text-sm font-medium transition-colors hover:text-primary relative py-2 nav-link"
+              aria-current={isActive ? "page" : undefined}
+              data-active={isActive}
+            >
+              {item.label}
+            </a>
+          );
+        })
       }
       <ThemeToggle client:load />
     </nav>
@@ -48,7 +59,7 @@ import { ThemeToggle } from "./ThemeToggle.tsx";
   class="fixed inset-0 bg-background/80 backdrop-blur-sm z-[100] hidden w-full"
 >
   <div class="flex flex-col h-full w-full">
-    <div class="flex items-center justify-between h-16 px-6 border-b w-full">
+    <div class="flex items-center justify-between h-16 px-4 border-b w-full">
       <a href="/" class="font-bold text-xl flex items-center gap-2">
         <span class="text-primary">Radosław</span>
         <span>Rzepka</span>
@@ -61,19 +72,63 @@ import { ThemeToggle } from "./ThemeToggle.tsx";
     <div class="flex flex-col items-center justify-center flex-1 p-6 w-full">
       <div class="flex flex-col items-center gap-12 w-full">
         {
-          navLinks.map((item) => (
-            <a
-              href={item.href}
-              class="text-3xl font-medium transition-colors hover:text-primary w-full text-center py-3"
-            >
-              {item.label}
-            </a>
-          ))
+          navLinks.map((item) => {
+            const isActive =
+              currentPath === item.href ||
+              (item.href !== "/" && currentPath.startsWith(item.href));
+
+            return (
+              <a
+                href={item.href}
+                class="text-3xl font-medium transition-all duration-300 hover:text-primary w-full text-center py-2 mobile-nav-link"
+                aria-current={isActive ? "page" : undefined}
+                data-active={isActive}
+              >
+                {item.label}
+              </a>
+            );
+          })
         }
       </div>
     </div>
   </div>
 </div>
+
+<style>
+  .nav-link {
+    position: relative;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primary);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: center;
+  }
+
+  .nav-link[data-active="true"] {
+    color: var(--color-primary);
+  }
+
+  .nav-link[data-active="true"]::after {
+    transform: scaleX(1);
+  }
+
+  .nav-link:hover::after {
+    transform: scaleX(1);
+  }
+
+  .mobile-nav-link[data-active="true"] {
+    color: var(--color-primary);
+    border-bottom: 1px solid var(--color-primary);
+  }
+</style>
 
 <script>
   const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
@@ -81,6 +136,14 @@ import { ThemeToggle } from "./ThemeToggle.tsx";
   const menuIcon = document.getElementById("menu-icon");
   const closeIcon = document.getElementById("close-icon");
   const mobileMenuClose = document.getElementById("mobile-menu-close");
+
+  const root = document.documentElement;
+  const primaryColor =
+    getComputedStyle(document.documentElement)
+      .getPropertyValue("--primary")
+      .trim() || "hsl(var(--primary))";
+
+  root.style.setProperty("--color-primary", primaryColor);
 
   if (
     mobileMenuToggle &&

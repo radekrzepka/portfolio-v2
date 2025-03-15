@@ -1,0 +1,18 @@
+---
+import PageHeader from "@/components/layout/PageHeader.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<div class="container mx-auto px-4 py-24 md:py-32">
+  <PageHeader title={title} description={description} />
+
+  <div class="content-container animate-fade-in-delay">
+    <slot />
+  </div>
+</div>

@@ -12,7 +12,6 @@ export const socialLinks = [
   { href: "mailto:kontakt@radoslawrzepka.me", icon: Mail, label: "Email" },
 ];
 
-// Base navigation links that are always shown
 const baseNavLinks = [
   { href: "/", label: "Strona główna" },
   { href: "/experience", label: "Doświadczenie" },
@@ -21,10 +20,8 @@ const baseNavLinks = [
   { href: "/contact", label: "Kontakt" },
 ];
 
-// Blog link that is conditionally added
 const blogLink = { href: "/blog", label: "Blog" };
 
-// Export the final navigation links based on feature flags
 export const navLinks = FEATURES.BLOG_ENABLED
   ? [...baseNavLinks, blogLink]
   : baseNavLinks;

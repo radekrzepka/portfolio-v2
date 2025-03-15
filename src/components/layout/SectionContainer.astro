@@ -1,0 +1,13 @@
+---
+interface Props {
+  background?: string;
+}
+
+const { background = "" } = Astro.props;
+---
+
+<section class={`py-6 w-full ${background}`}>
+  <div class="w-full px-4 md:px-6 max-w-7xl mx-auto">
+    <slot />
+  </div>
+</section>

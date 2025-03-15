@@ -2,8 +2,8 @@
 import Analytics from "@vercel/analytics/astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
 
-import Footer from "./../components/Footer.astro";
-import Navigation from "./../components/Navigation.astro";
+import Footer from "@/components/layout/Footer.astro";
+import Navigation from "@/components/navigation/Navigation.astro";
 
 import "./../styles/global.css";
 
@@ -42,6 +42,7 @@ const {
           ? "dark"
           : "light";
       };
+
       const isDark = getThemePreference() === "dark";
       document.documentElement.classList[isDark ? "add" : "remove"]("dark");
 
@@ -63,5 +64,78 @@ const {
       <slot />
     </main>
     <Footer />
+    <style is:global>
+      html,
+      body {
+        min-height: 100vh;
+      }
+
+      body {
+        background-attachment: fixed;
+        background-image:
+          radial-gradient(
+            circle at 10% 10%,
+            rgba(100, 149, 237, 0.15) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 90% 20%,
+            rgba(123, 104, 238, 0.15) 0%,
+            transparent 55%
+          ),
+          radial-gradient(
+            circle at 50% 90%,
+            rgba(72, 209, 204, 0.15) 0%,
+            transparent 60%
+          );
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(0, 0, 0, 0.2),
+          transparent
+        );
+        z-index: 1;
+      }
+
+      html.dark body {
+        background-attachment: fixed;
+        background-image:
+          radial-gradient(
+            circle at 10% 10%,
+            rgba(111, 66, 193, 0.25) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 90% 20%,
+            rgba(220, 20, 60, 0.15) 0%,
+            transparent 55%
+          ),
+          radial-gradient(
+            circle at 50% 90%,
+            rgba(65, 105, 225, 0.15) 0%,
+            transparent 60%
+          );
+      }
+
+      html.dark body::before {
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+      }
+    </style>
   </body>
 </html>

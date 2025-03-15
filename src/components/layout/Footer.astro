@@ -1,6 +1,7 @@
 ---
-import { FEATURES } from "../config/features";
-import { navLinks, socialLinks } from "../data/navigation";
+import { FooterCertifications } from "@/components/certifications";
+import { FEATURES } from "@/config/features";
+import { navLinks, socialLinks } from "@/data/navigation";
 
 const currentYear = new Date().getFullYear();
 
@@ -17,11 +18,6 @@ const latestPosts = FEATURES.BLOG_ENABLED
       { title: "AWS dla developerów frontend", href: "/blog/aws-for-frontend" },
     ]
   : [];
-const certifications = [
-  "AWS Certified Developer",
-  "Microsoft Certified: Azure Developer Associate",
-  "Google Professional Cloud Developer",
-];
 ---
 
 <footer class="border-t bg-muted/30">
@@ -107,11 +103,7 @@ const certifications = [
         ) : (
           <div class="space-y-4">
             <h3 class="font-bold text-lg">Certyfikaty</h3>
-            <ul class="space-y-2 text-sm">
-              {certifications.map((cert) => (
-                <li class="text-muted-foreground">{cert}</li>
-              ))}
-            </ul>
+            <FooterCertifications client:load />
           </div>
         )
       }
