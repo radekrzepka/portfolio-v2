@@ -144,13 +144,33 @@ const currentPath = Astro.url.pathname;
   const closeIcon = document.getElementById("close-icon");
   const mobileMenuClose = document.getElementById("mobile-menu-close");
 
-  const root = document.documentElement;
-  const primaryColor =
-    getComputedStyle(document.documentElement)
-      .getPropertyValue("--primary")
-      .trim() || "hsl(var(--primary))";
+  function updatePrimaryColorVariable() {
+    const root = document.documentElement;
+    const primaryColor =
+      getComputedStyle(document.documentElement)
+        .getPropertyValue("--primary")
+        .trim() || "hsl(var(--primary))";
 
-  root.style.setProperty("--color-primary", primaryColor);
+    root.style.setProperty("--color-primary", primaryColor);
+  }
+
+  updatePrimaryColorVariable();
+
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (
+        mutation.type === "attributes" &&
+        mutation.attributeName === "class"
+      ) {
+        updatePrimaryColorVariable();
+      }
+    });
+  });
+
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["class"],
+  });
 
   if (
     mobileMenuToggle &&

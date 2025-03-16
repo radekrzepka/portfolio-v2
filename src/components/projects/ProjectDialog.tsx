@@ -1,10 +1,11 @@
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
+  DialogClose,
 } from "@/components/ui/dialog";
 import {
   Carousel,
@@ -16,6 +17,7 @@ import {
 import type { Project, Credential } from "@/data/projects";
 import { skills } from "@/data/skills";
 import type { IconType } from "react-icons";
+import "./project-dialog.css";
 
 interface ProjectDialogProps {
   project: Project;
@@ -37,10 +39,14 @@ export function ProjectDialog({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-h-[90vh] max-w-4xl overflow-y-auto p-4 sm:p-6">
-        <DialogHeader className="p-0">
-          <DialogTitle>{project.title}</DialogTitle>
-        </DialogHeader>
+      <DialogContent className="custom-scrollbar max-h-[90vh] max-w-4xl overflow-y-auto p-4 sm:p-6">
+        <div className="mb-4 flex items-center justify-between">
+          <DialogTitle className="p-0">{project.title}</DialogTitle>
+          <DialogClose className="hover:bg-muted cursor-pointer rounded-full p-1 transition-colors">
+            <X className="h-4 w-4" />
+            <span className="sr-only">Close</span>
+          </DialogClose>
+        </div>
 
         {project.images && project.images.length > 0 && (
           <div className="mb-4 overflow-hidden rounded-lg">

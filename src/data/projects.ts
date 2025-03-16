@@ -58,7 +58,7 @@ export const projects: Project[] = [
   },
   {
     id: 3,
-    title: "Prime Numbers",
+    title: "Liczby pierwsze",
     description:
       "Edukacyjna strona internetowa o liczbach pierwszych nagrodzona w konkursie 'Zobaczyć Matematykę'.",
     longDescription:

@@ -15,7 +15,6 @@ export function SkillsFilter({ onFilterChange }: SkillsFilterProps) {
     onFilterChange(filterValue);
   };
 
-  // Create filters array from all categories in skillCategoryConfig
   const filters = Object.entries(skillCategoryConfig).map(
     ([value, config]) => ({
       value: value as SkillCategory,
