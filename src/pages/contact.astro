@@ -1,7 +1,44 @@
 ---
+import { Github, Linkedin, Mail } from "lucide-react";
+
+import { buttonVariants } from "@/components/ui/button";
 import PageContainer from "@/layout/PageContainer.astro";
+import { cn } from "@/lib/utils";
 
 import Layout from "../layout/Layout.astro";
+
+const contactItems = [
+  {
+    id: "email",
+    icon: Mail,
+    title: "Email",
+    description: "kontakt@radoslawrzepka.me",
+    href: "mailto:kontakt@radoslawrzepka.me",
+    buttonText: "Wyślij Email",
+    buttonVariant: "default" as const,
+    isExternal: false,
+  },
+  {
+    id: "linkedin",
+    icon: Linkedin,
+    title: "LinkedIn",
+    description: "Połącz się ze mną na LinkedIn",
+    href: "https://www.linkedin.com/in/radosław-rzepka-a87157248",
+    buttonText: "Profil LinkedIn",
+    buttonVariant: "outline" as const,
+    isExternal: true,
+  },
+  {
+    id: "github",
+    icon: Github,
+    title: "GitHub",
+    description: "Zobacz moje projekty open-source",
+    href: "https://github.com/radekrzepka",
+    buttonText: "Profil GitHub",
+    buttonVariant: "outline" as const,
+    isExternal: true,
+  },
+];
 ---
 
 <Layout
@@ -10,6 +47,35 @@ import Layout from "../layout/Layout.astro";
 >
   <PageContainer
     title="Kontakt"
-    description="Strona w przygotowaniu. Wkrótce pojawi się tutaj formularz kontaktowy."
-  />
+    description="Jestem otwarty na nowe możliwości i współpracę. Skontaktuj się ze mną poprzez jeden z poniższych kanałów."
+  >
+    <div class="grid gap-8 max-w-2xl mx-auto mt-8 px-4 sm:px-0">
+      {
+        contactItems.map((item) => (
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 p-4 sm:p-6 rounded-lg border bg-card shadow-sm">
+            <div class="flex items-center gap-3 w-full sm:w-auto">
+              <item.icon className="h-6 w-6 sm:h-8 sm:w-8 text-primary flex-shrink-0" />
+              <div class="flex-grow">
+                <h2 class="text-lg sm:text-xl font-semibold">{item.title}</h2>
+                <p class="text-sm sm:text-base text-muted-foreground break-words">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+            <a
+              href={item.href}
+              target={item.isExternal ? "_blank" : undefined}
+              rel={item.isExternal ? "noopener noreferrer" : undefined}
+              class={cn(
+                buttonVariants({ variant: item.buttonVariant, size: "sm" }),
+                "mt-2 sm:mt-0 sm:ml-auto w-full sm:w-auto text-center",
+              )}
+            >
+              {item.buttonText}
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </PageContainer>
 </Layout>
