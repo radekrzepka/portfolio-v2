@@ -41,7 +41,9 @@ export function ProjectDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="custom-scrollbar max-h-[90vh] max-w-4xl overflow-y-auto p-4 sm:p-6">
         <div className="mb-4 flex items-center justify-between">
-          <DialogTitle className="p-0">{project.title}</DialogTitle>
+          <DialogTitle className="p-0 text-2xl font-semibold">
+            {project.title}
+          </DialogTitle>
           <DialogClose className="hover:bg-muted cursor-pointer rounded-full p-1 transition-colors">
             <X className="h-4 w-4" />
             <span className="sr-only">Close</span>

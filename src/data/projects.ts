@@ -120,7 +120,7 @@ export const projects: Project[] = [
       "/projects/quiz-react/quiz.png",
       "/projects/quiz-react/results.png",
     ],
-    technologies: ["React", "React Hooks", "CSS Modules", "GitHub Pages"],
+    technologies: ["React"],
     liveUrl: "https://radekrzepka.github.io/quiz-react/",
     githubUrl: "https://github.com/radekrzepka/quiz-react",
     categories: [ProjectCategory.FRONTEND],

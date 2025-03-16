@@ -1,5 +1,5 @@
 ---
-import { categoryConfig } from "@/data/category-config";
+import { skillCategoryConfig } from "@/data/category-config";
 import { SkillCategory, skills } from "@/data/skills";
 
 const categoryOrder = [
@@ -14,7 +14,7 @@ const categoryOrder = [
 ];
 
 const skillCategories = categoryOrder.map((category) => {
-  const { name, icon } = categoryConfig[category];
+  const { name, icon } = skillCategoryConfig[category];
   const filteredSkills = skills.filter(
     (skill) => skill.category === category && !skill.hideInSkills,
   );
