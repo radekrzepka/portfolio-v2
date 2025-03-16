@@ -148,4 +148,16 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    id: 8,
+    title: "Advent of Code",
+    description:
+      "Zbiór rozwiązań zadań programistycznych z corocznego wyzwania Advent of Code w różnych językach programowania.",
+    longDescription:
+      "Repozytorium zawiera moje rozwiązania zadań z Advent of Code z wielu lat, zaimplementowane w różnych językach programowania. Advent of Code to coroczny zestaw świątecznych łamigłówek programistycznych, które można rozwiązać w dowolnym języku programowania.\n\nKażda łamigłówka składa się z dwóch części, przy czym druga część bazuje na pierwszej. Repozytorium organizuje rozwiązania według roku i dnia, a każde rozwiązanie jest zaimplementowane w jednym lub kilku językach programowania.\n\nGłówne cechy projektu:\n- Rozwiązania z wielu lat Advent of Code\n- Implementacje w różnych językach programowania (Go dla 2024, Rust dla 2023, Python dla 2022)",
+    images: ["/projects/advent-of-code/overview.png"],
+    technologies: ["Go", "Rust", "Python"],
+    githubUrl: "https://github.com/radekrzepka/advent-of-code-solutions",
+    categories: [ProjectCategory.OTHER],
+  },
 ];

@@ -17,6 +17,7 @@ export enum ProjectCategory {
   FRONTEND = "frontend",
   BACKEND = "backend",
   ML = "machine-learning",
+  OTHER = "other",
 }
 
 export const skillCategoryConfig = {
@@ -25,7 +26,7 @@ export const skillCategoryConfig = {
   [SkillCategory.BACKEND]: { name: "Backend", icon: Server },
   [SkillCategory.DATABASE]: { name: "Database", icon: Database },
   [SkillCategory.DEVOPS]: { name: "DevOps", icon: Cloud },
-  [SkillCategory.TOOLS]: { name: "Tools", icon: Wrench },
+  [SkillCategory.TOOLS]: { name: "Narzędzia", icon: Wrench },
   [SkillCategory.TEST]: { name: "Testing", icon: TestTube },
   [SkillCategory.ML]: { name: "Machine Learning", icon: Brain },
   [SkillCategory.CURRENTLY_LEARNING]: {
@@ -39,4 +40,5 @@ export const projectCategoryConfig = {
   [ProjectCategory.FRONTEND]: { name: "Frontend", icon: Code },
   [ProjectCategory.BACKEND]: { name: "Backend", icon: Server },
   [ProjectCategory.ML]: { name: "Machine Learning", icon: Brain },
+  [ProjectCategory.OTHER]: { name: "Inne", icon: Wrench },
 };

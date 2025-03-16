@@ -28,6 +28,7 @@ import {
   SiPulumi,
   SiPython,
   SiReact,
+  SiRust,
   SiSass,
   SiScikitlearn,
   SiShadcnui,
@@ -329,6 +330,13 @@ export const skills: Skill[] = [
     category: SkillCategory.CURRENTLY_LEARNING,
     icon: SiGo,
     color: "#00ADD8",
+  },
+  {
+    name: "Rust",
+    category: SkillCategory.CURRENTLY_LEARNING,
+    icon: SiRust,
+    color: "#000000",
+    hideInSkills: true,
   },
   {
     name: "WordPress",
