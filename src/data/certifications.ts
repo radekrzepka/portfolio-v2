@@ -16,8 +16,8 @@ export const certifications: Certification[] = [
   {
     name: "AWS Certified Solutions Architect – Associate",
     issuer: "Amazon Web Services",
-    issued: "Sep 2024",
-    expires: "Sep 2027",
+    issued: "Wrzesień 2024",
+    expires: "Wrzesień 2027",
     icon: Cloud,
     color: "text-blue-500",
     credentialUrl:
@@ -28,8 +28,8 @@ export const certifications: Certification[] = [
   {
     name: "AWS Certified Machine Learning Engineer - Associate",
     issuer: "Amazon Web Services",
-    issued: "Jan 2025",
-    expires: "Jan 2028",
+    issued: "Styczeń 2025",
+    expires: "Styczeń 2028",
     icon: Cloud,
     color: "text-blue-500",
     credentialUrl:
