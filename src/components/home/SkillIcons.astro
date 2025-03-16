@@ -15,7 +15,7 @@ const featuredSkills: Skill[] = skills.filter(
       return (
         <div class="flex flex-col items-center justify-center gap-3 transform transition-all duration-300 hover:scale-110">
           <div
-            class="rounded-xl p-4 bg-background dark:bg-zinc-800 transition-all duration-300 hover:-translate-y-1"
+            class="rounded-xl p-4 bg-muted dark:bg-zinc-800 transition-all duration-300 hover:-translate-y-1"
             style={{ boxShadow: `0 0 0 rgba(0, 0, 0, 0)` }}
             onmouseenter={`this.style.boxShadow = '0 0 20px ${skill.color}33'; this.style.color = '${skill.color}';`}
             onmouseleave={`this.style.boxShadow = '0 0 0 rgba(0, 0, 0, 0)'; this.style.color = '';`}

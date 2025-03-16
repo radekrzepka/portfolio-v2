@@ -12,8 +12,15 @@ import {
 
 import { SkillCategory } from "./skills";
 
-export const categoryConfig = {
-  [SkillCategory.ALL]: { name: "All", icon: Cog },
+export enum ProjectCategory {
+  ALL = "all",
+  FRONTEND = "frontend",
+  BACKEND = "backend",
+  ML = "machine-learning",
+}
+
+export const skillCategoryConfig = {
+  [SkillCategory.ALL]: { name: "Wszystkie", icon: Cog },
   [SkillCategory.FRONTEND]: { name: "Frontend", icon: Code },
   [SkillCategory.BACKEND]: { name: "Backend", icon: Server },
   [SkillCategory.DATABASE]: { name: "Database", icon: Database },
@@ -22,7 +29,14 @@ export const categoryConfig = {
   [SkillCategory.TEST]: { name: "Testing", icon: TestTube },
   [SkillCategory.ML]: { name: "Machine Learning", icon: Brain },
   [SkillCategory.CURRENTLY_LEARNING]: {
-    name: "Currently Learning",
+    name: "W trakcie nauki",
     icon: BookOpen,
   },
+};
+
+export const projectCategoryConfig = {
+  [ProjectCategory.ALL]: { name: "Wszystkie", icon: Cog },
+  [ProjectCategory.FRONTEND]: { name: "Frontend", icon: Code },
+  [ProjectCategory.BACKEND]: { name: "Backend", icon: Server },
+  [ProjectCategory.ML]: { name: "Machine Learning", icon: Brain },
 };

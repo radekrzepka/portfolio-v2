@@ -1,14 +1,7 @@
 import { useState } from "react";
 import { SkillCategory } from "@/data/skills";
 import { Button } from "@/components/ui/button";
-import { Brain, Layers, Layout, Server } from "lucide-react";
-
-const filters = [
-  { value: SkillCategory.ALL, name: "All", icon: Layers },
-  { value: SkillCategory.FRONTEND, name: "Frontend", icon: Layout },
-  { value: SkillCategory.BACKEND, name: "Backend", icon: Server },
-  { value: SkillCategory.ML, name: "Machine Learning", icon: Brain },
-];
+import { skillCategoryConfig } from "@/data/category-config";
 
 interface SkillsFilterProps {
   onFilterChange: (filter: SkillCategory) => void;
@@ -21,6 +14,15 @@ export function SkillsFilter({ onFilterChange }: SkillsFilterProps) {
     setActiveFilter(filterValue);
     onFilterChange(filterValue);
   };
+
+  // Create filters array from all categories in skillCategoryConfig
+  const filters = Object.entries(skillCategoryConfig).map(
+    ([value, config]) => ({
+      value: value as SkillCategory,
+      name: config.name,
+      icon: config.icon,
+    }),
+  );
 
   return (
     <div className="mb-8 flex flex-wrap gap-2">

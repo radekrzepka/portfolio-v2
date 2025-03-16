@@ -1,20 +1,12 @@
 import React, { useState } from "react";
-import { Brain, Layers, Layout, Server } from "lucide-react";
-import { ProjectCategory } from "@/data/projects";
 import { Button } from "@/components/ui/button";
+import { projectCategoryConfig, ProjectCategory } from "@/data/category-config";
 
 interface Filter {
   name: string;
   value: string;
   icon: React.ElementType;
 }
-
-const filters: Filter[] = [
-  { name: "All", value: ProjectCategory.ALL, icon: Layers },
-  { name: "Frontend", value: ProjectCategory.FRONTEND, icon: Layout },
-  { name: "Backend", value: ProjectCategory.BACKEND, icon: Server },
-  { name: "Machine Learning", value: ProjectCategory.ML, icon: Brain },
-];
 
 export function ProjectsFilter() {
   const [activeFilter, setActiveFilter] = useState<string>(ProjectCategory.ALL);
@@ -34,6 +26,14 @@ export function ProjectsFilter() {
       }
     });
   };
+
+  const filters: Filter[] = Object.entries(projectCategoryConfig).map(
+    ([value, config]) => ({
+      value,
+      name: config.name,
+      icon: config.icon,
+    }),
+  );
 
   return (
     <div className="mb-8 flex flex-wrap gap-2">

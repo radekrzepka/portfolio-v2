@@ -25,7 +25,6 @@ export function ExperienceTimeline() {
 
   return (
     <div className="relative">
-      {/* Timeline */}
       <div className="bg-muted absolute top-0 bottom-0 left-4 hidden w-0.5 sm:block"></div>
 
       <div className="space-y-12">

@@ -1,4 +1,3 @@
-import React from "react";
 import { ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -38,13 +37,13 @@ export function ProjectDialog({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-4xl">
-        <DialogHeader>
+      <DialogContent className="max-h-[90vh] max-w-4xl overflow-y-auto p-4 sm:p-6">
+        <DialogHeader className="p-0">
           <DialogTitle>{project.title}</DialogTitle>
         </DialogHeader>
 
         {project.images && project.images.length > 0 && (
-          <div className="mb-6 overflow-hidden rounded-lg">
+          <div className="mb-4 overflow-hidden rounded-lg">
             <Carousel className="w-full">
               <CarouselContent>
                 {project.images.map((image, index) => (
@@ -69,13 +68,15 @@ export function ProjectDialog({
           </div>
         )}
 
-        <div className="mb-6">
-          <h3 className="mb-2 text-xl font-semibold">Description</h3>
-          <p className="text-muted-foreground">{project.longDescription}</p>
+        <div className="mb-4">
+          <h3 className="mb-1 text-lg font-semibold">Opis</h3>
+          <p className="text-muted-foreground text-sm whitespace-pre-line">
+            {project.longDescription}
+          </p>
         </div>
 
-        <div className="mb-6">
-          <h3 className="mb-2 text-xl font-semibold">Technologies</h3>
+        <div className="mb-4">
+          <h3 className="mb-1 text-lg font-semibold">Technologie</h3>
           <div className="flex flex-wrap gap-2">
             {project.technologies.map((tech, index) => {
               const skillInfo = findSkillIcon(tech);
@@ -107,7 +108,7 @@ export function ProjectDialog({
                 className="flex cursor-pointer items-center gap-2"
               >
                 <ExternalLink className="h-4 w-4" />
-                Live Demo
+                Demo
               </Button>
             </a>
           )}
@@ -123,14 +124,14 @@ export function ProjectDialog({
                 className="flex cursor-pointer items-center gap-2"
               >
                 <Github className="h-4 w-4" />
-                Source Code
+                Kod źródłowy
               </Button>
             </a>
           )}
 
           {project.credentials && project.credentials.length > 0 && (
             <div className="border-border bg-background mt-4 w-full rounded-md border p-3">
-              <h4 className="mb-1 font-medium">Test Credentials</h4>
+              <h4 className="mb-1 font-medium">Dane testowe</h4>
               <div className="text-muted-foreground grid grid-cols-2 gap-2 text-sm">
                 {project.credentials.map((cred: Credential, index: number) => (
                   <div
@@ -138,23 +139,12 @@ export function ProjectDialog({
                     className="border-border col-span-2 grid grid-cols-2 gap-2 border-t pt-2 first:border-0 first:pt-0"
                   >
                     <div>
-                      Username:{" "}
+                      Nazwa użytkownika:{" "}
                       <span className="font-mono">{cred.username}</span>
                     </div>
                     <div>
-                      Password:{" "}
-                      <span className="font-mono">{cred.password}</span>
+                      Hasło: <span className="font-mono">{cred.password}</span>
                     </div>
-                    {cred.role && (
-                      <div className="col-span-2">
-                        Role: <span className="font-mono">{cred.role}</span>
-                      </div>
-                    )}
-                    {cred.description && (
-                      <div className="col-span-2 text-xs">
-                        {cred.description}
-                      </div>
-                    )}
                   </div>
                 ))}
               </div>
