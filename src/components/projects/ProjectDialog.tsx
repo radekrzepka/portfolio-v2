@@ -66,8 +66,8 @@ export function ProjectDialog({
               </CarouselContent>
               {project.images.length > 1 && (
                 <>
-                  <CarouselPrevious className="absolute top-1/2 left-2 -translate-y-1/2" />
-                  <CarouselNext className="absolute top-1/2 right-2 -translate-y-1/2" />
+                  <CarouselPrevious className="bg-background/80 border-border hover:bg-background dark:bg-background/90 dark:border-border/50 absolute top-1/2 left-2 -translate-y-1/2 border shadow-sm" />
+                  <CarouselNext className="bg-background/80 border-border hover:bg-background dark:bg-background/90 dark:border-border/50 absolute top-1/2 right-2 -translate-y-1/2 border shadow-sm" />
                 </>
               )}
             </Carousel>

@@ -83,7 +83,7 @@ export const projects: Project[] = [
       "Smakosfera to platforma do dzielenia się przepisami kulinarnymi, która umożliwia użytkownikom odkrywanie, tworzenie i zapisywanie przepisów. Aplikacja zapewnia intuicyjny interfejs do przeglądania przepisów, filtrowania według tagów i zarządzania osobistą kolekcją ulubionych.\n\nProjekt został stworzony, aby ułatwić entuzjastom jedzenia dzielenie się swoimi doświadczeniami kulinarnymi i odkrywanie nowych przepisów od innych użytkowników.\n\nGłówne funkcje:\n- Uwierzytelnianie użytkowników: Bezpieczna rejestracja i logowanie\n- Zarządzanie przepisami: Tworzenie, przeglądanie i zarządzanie własnymi przepisami\n- Ulubione przepisy: Zapisywanie przepisów innych użytkowników do kolekcji ulubionych\n- Odkrywanie przepisów: Przeglądanie wszystkich przepisów udostępnionych przez społeczność\n- Filtrowanie tagów: Filtrowanie przepisów według tagów, aby znaleźć dokładnie to, czego szukasz\n- Personalizacja nazwy użytkownika: Ustawianie i zmiana nazwy użytkownika\n- Responsywny design: Zoptymalizowany zarówno dla komputerów stacjonarnych, jak i urządzeń mobilnych",
     images: ["/projects/smakosfera/main-page.png"],
     technologies: ["React", "Tailwind CSS", "Firebase"],
-    liveUrl: "https://smakosfera.web.app/",
+    liveUrl: "https://smakosfera-a84c7.web.app/",
     githubUrl: "https://github.com/radekrzepka/smakosfera",
     categories: [ProjectCategory.FRONTEND, ProjectCategory.BACKEND],
     credentials: [
@@ -108,5 +108,44 @@ export const projects: Project[] = [
     technologies: ["HTML5", "Sass", "JavaScript"],
     liveUrl: "https://startezeby.pl/",
     categories: [ProjectCategory.FRONTEND],
+  },
+  {
+    id: 6,
+    title: "Quiz React",
+    description:
+      "Responsywna i interaktywna aplikacja quizowa zbudowana przy użyciu React.",
+    longDescription:
+      "Quiz React to aplikacja webowa, która umożliwia użytkownikom testowanie swojej wiedzy w różnych kategoriach. Aplikacja oferuje czysty, przyjazny dla użytkownika interfejs, gdzie użytkownicy mogą:\n\n- Wybierać kategorie quizów\n- Odpowiadać na pytania\n- Oznaczać trudne pytania do późniejszego przeglądu\n- Śledzić czas spędzony na quizie\n- Przeglądać odpowiedzi i zobaczyć swój wynik na końcu\n\nGłówne funkcje:\n- Wybór kategorii: Wybór spośród różnych kategorii quizów\n- Interaktywny interfejs pytań: Przyjazny dla użytkownika interfejs do odpowiadania na pytania\n- Nawigacja między pytaniami: Łatwa nawigacja między pytaniami\n- Oznaczanie pytań: Możliwość oznaczania trudnych pytań do późniejszego przeglądu\n- Timer: Śledzenie czasu spędzonego na quizie\n- Przegląd wyników: Szczegółowe wyniki z poprawnymi odpowiedziami po ukończeniu quizu",
+    images: [
+      "/projects/quiz-react/quiz.png",
+      "/projects/quiz-react/results.png",
+    ],
+    technologies: ["React", "React Hooks", "CSS Modules", "GitHub Pages"],
+    liveUrl: "https://radekrzepka.github.io/quiz-react/",
+    githubUrl: "https://github.com/radekrzepka/quiz-react",
+    categories: [ProjectCategory.FRONTEND],
+  },
+  {
+    id: 7,
+    title: "Budget App",
+    description:
+      "Kompleksowa aplikacja webowa do śledzenia i zarządzania osobistymi finansami.",
+    longDescription:
+      "Budget App to narzędzie do zarządzania finansami osobistymi, które pomaga śledzić zarobki i wydatki. Aplikacja zapewnia przyjazny dla użytkownika interfejs do rejestrowania transakcji finansowych, wizualizacji wzorców wydatków i monitorowania celów budżetowych.\n\nAplikacja rozwiązuje powszechny problem śledzenia, na co wydawane są pieniądze i pomaga podejmować świadome decyzje finansowe, zapewniając jasne wizualizacje nawyków wydatkowych.\n\nGłówne funkcje:\n- Uwierzytelnianie użytkowników: Tworzenie i zarządzanie osobistym kontem w celu zabezpieczenia danych finansowych\n- Rejestrowanie transakcji: Łatwe dodawanie zapisów dochodów i wydatków z opisami i datami\n- Panel finansowy: Przeglądanie podsumowania bieżącego statusu finansowego na stronie głównej\n- Interaktywne wykresy: Wizualizacja wzorców wydatków i źródeł dochodów za pomocą intuicyjnych wykresów\n- Widok kalendarza: Śledzenie działań finansowych według daty w formacie kalendarza\n- Cele budżetowe: Ustawianie i monitorowanie celów dochodów i wydatków, aby pomóc w zarządzaniu finansami",
+    images: [
+      "/projects/budget-app/dashboard-page.png",
+      "/projects/budget-app/calendar-page.png",
+      "/projects/budget-app/chart-page.png",
+    ],
+    technologies: ["HTML5", "Sass", "JavaScript", "Firebase"],
+    liveUrl: "https://budget-app-502e6.web.app/",
+    githubUrl: "https://github.com/radekrzepka/budget-app",
+    categories: [ProjectCategory.FRONTEND, ProjectCategory.BACKEND],
+    credentials: [
+      {
+        username: "test@gmail.com",
+        password: "qwerty",
+      },
+    ],
   },
 ];
