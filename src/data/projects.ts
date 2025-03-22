@@ -38,7 +38,6 @@ export const projects: Project[] = [
       "Tailwind CSS",
       "Turborepo",
     ],
-    githubUrl: "https://github.com/radekrzepka/studywise",
     categories: [ProjectCategory.FRONTEND, ProjectCategory.BACKEND],
     isInProgress: true,
     featured: true,
