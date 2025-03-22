@@ -153,7 +153,7 @@ export const skills: Skill[] = [
     isFeatured: true,
   },
   {
-    name: "Express",
+    name: "Express.js",
     category: SkillCategory.BACKEND,
     icon: SiExpress,
     color: "#000000",

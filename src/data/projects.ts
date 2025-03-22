@@ -58,6 +58,32 @@ export const projects: Project[] = [
   },
   {
     id: 3,
+    title: "Nextpress Chat",
+    description:
+      "Nowoczesna aplikacja do komunikacji w czasie rzeczywistym zbudowana przy użyciu Next.js i Express.",
+    longDescription:
+      "Nextpress Chat to nowoczesna aplikacja do przesyłania wiadomości w czasie rzeczywistym, zbudowana przy użyciu Next.js i Express. Umożliwia użytkownikom łączenie się ze znajomymi, wymianę wiadomości w czasie rzeczywistym i zarządzanie swoim profilem. Aplikacja zapewnia płynne i responsywne doświadczenie czatu z funkcjami takimi jak wskaźniki statusu online i personalizacja awatara.\n\nGłówne funkcje:\n- Wiadomości w czasie rzeczywistym: Wymiana wiadomości z kontaktami w czasie rzeczywistym przy użyciu technologii WebSocket\n- Zarządzanie kontaktami: Przeglądanie kontaktów i dodawanie nowych znajomych\n- Uwierzytelnianie użytkowników: Bezpieczna rejestracja, logowanie i procedury odzyskiwania hasła\n- Personalizacja profilu: Zmiana awatara i zarządzanie profilem\n- Status online: Sprawdzanie, którzy z kontaktów są obecnie online\n- Responsywny design: Działa płynnie zarówno na komputerach stacjonarnych, jak i urządzeniach mobilnych\n- Historia wiadomości: Dostęp i przeglądanie historii konwersacji",
+    images: [
+      "/projects/nextpress-chat/main-chat.png",
+      "/projects/nextpress-chat/user-view.png",
+      "/projects/nextpress-chat/log-in-page.png",
+    ],
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Express.js",
+      "Node.js",
+      "PostgreSQL",
+      "Prisma",
+    ],
+    githubUrl: "https://github.com/radekrzepka/nextpress-chat",
+    categories: [ProjectCategory.FRONTEND, ProjectCategory.BACKEND],
+    featured: true,
+  },
+  {
+    id: 4,
     title: "Liczby pierwsze",
     description:
       "Edukacyjna strona internetowa o liczbach pierwszych nagrodzona w konkursie 'Zobaczyć Matematykę'.",
@@ -75,58 +101,7 @@ export const projects: Project[] = [
     categories: [ProjectCategory.FRONTEND],
   },
   {
-    id: 4,
-    title: "Smakosfera",
-    description:
-      "Platforma do dzielenia się przepisami kulinarnymi z możliwością zapisywania ulubionych.",
-    longDescription:
-      "Smakosfera to platforma do dzielenia się przepisami kulinarnymi, która umożliwia użytkownikom odkrywanie, tworzenie i zapisywanie przepisów. Aplikacja zapewnia intuicyjny interfejs do przeglądania przepisów, filtrowania według tagów i zarządzania osobistą kolekcją ulubionych.\n\nProjekt został stworzony, aby ułatwić entuzjastom jedzenia dzielenie się swoimi doświadczeniami kulinarnymi i odkrywanie nowych przepisów od innych użytkowników.\n\nGłówne funkcje:\n- Uwierzytelnianie użytkowników: Bezpieczna rejestracja i logowanie\n- Zarządzanie przepisami: Tworzenie, przeglądanie i zarządzanie własnymi przepisami\n- Ulubione przepisy: Zapisywanie przepisów innych użytkowników do kolekcji ulubionych\n- Odkrywanie przepisów: Przeglądanie wszystkich przepisów udostępnionych przez społeczność\n- Filtrowanie tagów: Filtrowanie przepisów według tagów, aby znaleźć dokładnie to, czego szukasz\n- Personalizacja nazwy użytkownika: Ustawianie i zmiana nazwy użytkownika\n- Responsywny design: Zoptymalizowany zarówno dla komputerów stacjonarnych, jak i urządzeń mobilnych",
-    images: ["/projects/smakosfera/main-page.png"],
-    technologies: ["React", "Tailwind CSS", "Firebase"],
-    liveUrl: "https://smakosfera-a84c7.web.app/",
-    githubUrl: "https://github.com/radekrzepka/smakosfera",
-    categories: [ProjectCategory.FRONTEND, ProjectCategory.BACKEND],
-    credentials: [
-      {
-        username: "test@gmail.com",
-        password: "qwerty",
-      },
-    ],
-  },
-  {
     id: 5,
-    title: "Kodent Website",
-    description:
-      "Profesjonalna strona internetowa dla gabinetu stomatologicznego specjalizującego się w cyfrowej stomatologii i projektowaniu uśmiechu.",
-    longDescription:
-      "Strona internetowa Kodent to profesjonalna witryna gabinetu stomatologicznego, która prezentuje usługi, technologie i wiedzę specjalistyczną oferowane przez praktykę dentystyczną dr. Błażeja Szczerbaniewicza. Strona koncentruje się na rozwiązaniach cyfrowej stomatologii, w tym leczeniu Invisalign, cyfrowym projektowaniu uśmiechu i interdyscyplinarnym leczeniu zaburzeń czynnościowych układu stomatognatycznego.\n\nStrona służy jako portal informacyjny dla potencjalnych pacjentów oraz specjalistów zainteresowanych szkoleniami i edukacją stomatologiczną.\n\nGłówne funkcje:\n- Responsywny design: W pełni responsywna strona, która działa płynnie na urządzeniach stacjonarnych i mobilnych\n- Nowoczesny interfejs: Czysty i profesjonalny design odpowiedni dla praktyki stomatologicznej\n- Interaktywne elementy: Animacje przewijania i odtwarzacz wideo dla lepszego doświadczenia użytkownika\n- Prezentacja usług: Szczegółowa prezentacja usług stomatologicznych i technologii\n- Nawigacja mobilna: Menu hamburgerowe dla lepszej nawigacji na urządzeniach mobilnych",
-    images: [
-      "/projects/kodent/main-page.png",
-      "/projects/kodent/services.png",
-      "/projects/kodent/contact.png",
-    ],
-    technologies: ["HTML5", "Sass", "JavaScript"],
-    liveUrl: "https://startezeby.pl/",
-    categories: [ProjectCategory.FRONTEND],
-  },
-  {
-    id: 6,
-    title: "Quiz React",
-    description:
-      "Responsywna i interaktywna aplikacja quizowa zbudowana przy użyciu React.",
-    longDescription:
-      "Quiz React to aplikacja webowa, która umożliwia użytkownikom testowanie swojej wiedzy w różnych kategoriach. Aplikacja oferuje czysty, przyjazny dla użytkownika interfejs, gdzie użytkownicy mogą:\n\n- Wybierać kategorie quizów\n- Odpowiadać na pytania\n- Oznaczać trudne pytania do późniejszego przeglądu\n- Śledzić czas spędzony na quizie\n- Przeglądać odpowiedzi i zobaczyć swój wynik na końcu\n\nGłówne funkcje:\n- Wybór kategorii: Wybór spośród różnych kategorii quizów\n- Interaktywny interfejs pytań: Przyjazny dla użytkownika interfejs do odpowiadania na pytania\n- Nawigacja między pytaniami: Łatwa nawigacja między pytaniami\n- Oznaczanie pytań: Możliwość oznaczania trudnych pytań do późniejszego przeglądu\n- Timer: Śledzenie czasu spędzonego na quizie\n- Przegląd wyników: Szczegółowe wyniki z poprawnymi odpowiedziami po ukończeniu quizu",
-    images: [
-      "/projects/quiz-react/quiz.png",
-      "/projects/quiz-react/results.png",
-    ],
-    technologies: ["React"],
-    liveUrl: "https://radekrzepka.github.io/quiz-react/",
-    githubUrl: "https://github.com/radekrzepka/quiz-react",
-    categories: [ProjectCategory.FRONTEND],
-  },
-  {
-    id: 7,
     title: "Budget App",
     description:
       "Kompleksowa aplikacja webowa do śledzenia i zarządzania osobistymi finansami.",
@@ -149,7 +124,59 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: 6,
+    title: "Kodent Website",
+    description:
+      "Profesjonalna strona internetowa dla gabinetu stomatologicznego specjalizującego się w cyfrowej stomatologii i projektowaniu uśmiechu.",
+    longDescription:
+      "Strona internetowa Kodent to profesjonalna witryna gabinetu stomatologicznego, która prezentuje usługi, technologie i wiedzę specjalistyczną oferowane przez praktykę dentystyczną dr. Błażeja Szczerbaniewicza. Strona koncentruje się na rozwiązaniach cyfrowej stomatologii, w tym leczeniu Invisalign, cyfrowym projektowaniu uśmiechu i interdyscyplinarnym leczeniu zaburzeń czynnościowych układu stomatognatycznego.\n\nStrona służy jako portal informacyjny dla potencjalnych pacjentów oraz specjalistów zainteresowanych szkoleniami i edukacją stomatologiczną.\n\nGłówne funkcje:\n- Responsywny design: W pełni responsywna strona, która działa płynnie na urządzeniach stacjonarnych i mobilnych\n- Nowoczesny interfejs: Czysty i profesjonalny design odpowiedni dla praktyki stomatologicznej\n- Interaktywne elementy: Animacje przewijania i odtwarzacz wideo dla lepszego doświadczenia użytkownika\n- Prezentacja usług: Szczegółowa prezentacja usług stomatologicznych i technologii\n- Nawigacja mobilna: Menu hamburgerowe dla lepszej nawigacji na urządzeniach mobilnych",
+    images: [
+      "/projects/kodent/main-page.png",
+      "/projects/kodent/services.png",
+      "/projects/kodent/contact.png",
+    ],
+    technologies: ["HTML5", "Sass", "JavaScript"],
+    liveUrl: "https://startezeby.pl/",
+    categories: [ProjectCategory.FRONTEND],
+  },
+  {
+    id: 7,
+    title: "Smakosfera",
+    description:
+      "Platforma do dzielenia się przepisami kulinarnymi z możliwością zapisywania ulubionych.",
+    longDescription:
+      "Smakosfera to platforma do dzielenia się przepisami kulinarnymi, która umożliwia użytkownikom odkrywanie, tworzenie i zapisywanie przepisów. Aplikacja zapewnia intuicyjny interfejs do przeglądania przepisów, filtrowania według tagów i zarządzania osobistą kolekcją ulubionych.\n\nProjekt został stworzony, aby ułatwić entuzjastom jedzenia dzielenie się swoimi doświadczeniami kulinarnymi i odkrywanie nowych przepisów od innych użytkowników.\n\nGłówne funkcje:\n- Uwierzytelnianie użytkowników: Bezpieczna rejestracja i logowanie\n- Zarządzanie przepisami: Tworzenie, przeglądanie i zarządzanie własnymi przepisami\n- Ulubione przepisy: Zapisywanie przepisów innych użytkowników do kolekcji ulubionych\n- Odkrywanie przepisów: Przeglądanie wszystkich przepisów udostępnionych przez społeczność\n- Filtrowanie tagów: Filtrowanie przepisów według tagów, aby znaleźć dokładnie to, czego szukasz\n- Personalizacja nazwy użytkownika: Ustawianie i zmiana nazwy użytkownika\n- Responsywny design: Zoptymalizowany zarówno dla komputerów stacjonarnych, jak i urządzeń mobilnych",
+    images: ["/projects/smakosfera/main-page.png"],
+    technologies: ["React", "Tailwind CSS", "Firebase"],
+    liveUrl: "https://smakosfera-a84c7.web.app/",
+    githubUrl: "https://github.com/radekrzepka/smakosfera",
+    categories: [ProjectCategory.FRONTEND, ProjectCategory.BACKEND],
+    credentials: [
+      {
+        username: "test@gmail.com",
+        password: "qwerty",
+      },
+    ],
+  },
+  {
     id: 8,
+    title: "Quiz React",
+    description:
+      "Responsywna i interaktywna aplikacja quizowa zbudowana przy użyciu React.",
+    longDescription:
+      "Quiz React to aplikacja webowa, która umożliwia użytkownikom testowanie swojej wiedzy w różnych kategoriach. Aplikacja oferuje czysty, przyjazny dla użytkownika interfejs, gdzie użytkownicy mogą:\n\n- Wybierać kategorie quizów\n- Odpowiadać na pytania\n- Oznaczać trudne pytania do późniejszego przeglądu\n- Śledzić czas spędzony na quizie\n- Przeglądać odpowiedzi i zobaczyć swój wynik na końcu\n\nGłówne funkcje:\n- Wybór kategorii: Wybór spośród różnych kategorii quizów\n- Interaktywny interfejs pytań: Przyjazny dla użytkownika interfejs do odpowiadania na pytania\n- Nawigacja między pytaniami: Łatwa nawigacja między pytaniami\n- Oznaczanie pytań: Możliwość oznaczania trudnych pytań do późniejszego przeglądu\n- Timer: Śledzenie czasu spędzonego na quizie\n- Przegląd wyników: Szczegółowe wyniki z poprawnymi odpowiedziami po ukończeniu quizu",
+    images: [
+      "/projects/quiz-react/quiz.png",
+      "/projects/quiz-react/results.png",
+    ],
+    technologies: ["React"],
+    liveUrl: "https://radekrzepka.github.io/quiz-react/",
+    githubUrl: "https://github.com/radekrzepka/quiz-react",
+    categories: [ProjectCategory.FRONTEND],
+  },
+
+  {
+    id: 9,
     title: "Advent of Code",
     description:
       "Zbiór rozwiązań zadań programistycznych z corocznego wyzwania Advent of Code w różnych językach programowania.",

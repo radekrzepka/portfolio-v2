@@ -42,9 +42,7 @@ The site is designed to present my work in an elegant and user-friendly interfac
 
 - **Framework**: [Astro](https://astro.build/) - Static site generator with excellent performance
 - **Component Library**: [React](https://reactjs.org/) - For interactive UI components
-- **Styling**:
-  - [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
-  - [shadcn/ui](https://ui.shadcn.com/) - Re-usable UI components
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
 - **Language**: [TypeScript](https://www.typescriptlang.org/) - For type safety and better developer experience
 
 ## Getting Started
