@@ -17,9 +17,32 @@ export interface Project {
   categories: ProjectCategory[];
   credentials?: Credential[];
   featured?: boolean;
+  isInProgress?: boolean;
 }
 
 export const projects: Project[] = [
+  {
+    id: 12,
+    title: "Studywise",
+    description:
+      "Nowoczesna, full-stack aplikacja do zarządzania treściami edukacyjnymi i nauki zbudowana w architekturze monorepo Turborepo.",
+    longDescription:
+      "Studywise to kompleksowa platforma edukacyjna zaprojektowana w celu ułatwienia nauki i zarządzania treściami.",
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "NestJS",
+      "PostgreSQL",
+      "Drizzle",
+      "Tailwind CSS",
+      "Turborepo",
+    ],
+    githubUrl: "https://github.com/radekrzepka/studywise",
+    categories: [ProjectCategory.FRONTEND, ProjectCategory.BACKEND],
+    isInProgress: true,
+    featured: true,
+  },
   {
     id: 1,
     title: "Portfolio v2",
@@ -80,7 +103,6 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/radekrzepka/nextpress-chat",
     categories: [ProjectCategory.FRONTEND, ProjectCategory.BACKEND],
-    featured: true,
   },
   {
     id: 4,
@@ -174,7 +196,6 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/radekrzepka/quiz-react",
     categories: [ProjectCategory.FRONTEND],
   },
-
   {
     id: 9,
     title: "Advent of Code",
@@ -186,5 +207,27 @@ export const projects: Project[] = [
     technologies: ["Go", "Rust", "Python"],
     githubUrl: "https://github.com/radekrzepka/advent-of-code-solutions",
     categories: [ProjectCategory.OTHER],
+  },
+  {
+    id: 10,
+    title: "NBA Salary Prediction",
+    description:
+      "Projekt analizy danych i uczenia maszynowego przewidujący pensje graczy NBA na podstawie ich statystyk.",
+    longDescription:
+      "Ten projekt koncentruje się na analizie pensji graczy NBA z sezonu 2022-2023 w odniesieniu do ich statystyk wydajnościowych. Analiza ma na celu wizualne przedstawienie i zbadanie relacji między statystykami graczy a ich wynagrodzeniami, badanie korelacji między różnymi metrykami a wynagrodzeniami, budowę modeli predykcyjnych do szacowania pensji graczy oraz identyfikację potencjalnie przewartościowanych i niedowartościowanych zawodników w lidze.\n\nGłówne funkcje:\n- Eksploracja danych: Kompleksowa analiza statystyk graczy NBA i rozkładów wynagrodzeń\n- Analityka wizualna: Wiele wizualizacji pokazujących związki między metrykami wydajności a wynagrodzeniem\n- Analiza najlepiej zarabiających: Identyfikacja i analiza najlepiej opłacanych graczy NBA\n- Ocena wpływu wieku: Analiza wpływu wieku gracza na poziom wynagrodzenia\n- Analiza korelacji: Dogłębna eksploracja statystyk najsilniej skorelowanych z wynagrodzeniem\n- Modelowanie predykcyjne: Implementacja modeli uczenia maszynowego (Regresja liniowa, KNN, Random Forest) do przewidywania wynagrodzeń\n- Ocena wartości: Identyfikacja potencjalnie przewartościowanych i niedowartościowanych graczy na podstawie przewidywań modelu",
+    technologies: ["Python", "Pandas", "NumPy", "Scikit-learn"],
+    githubUrl: "https://github.com/radekrzepka/nba-salary-predict",
+    categories: [ProjectCategory.ML],
+  },
+  {
+    id: 11,
+    title: "Heart Failure Prediction",
+    description:
+      "System predykcji niewydolności serca wykorzystujący modele uczenia maszynowego na danych medycznych.",
+    longDescription:
+      "Projekt skupia się na przewidywaniu niewydolności serca przy użyciu modeli uczenia maszynowego. Analiza wykorzystuje różne algorytmy klasyfikacyjne na danych medycznych, aby identyfikować pacjentów zagrożonych chorobami serca. Dzięki wykorzystaniu parametrów zdrowotnych pacjentów, system pomaga we wczesnym wykrywaniu potencjalnych chorób serca, potencjalnie ratując życie dzięki wczesnej interwencji.\n\nProjekt obejmuje kompleksową eksploracyjną analizę danych, inżynierię cech, trening modeli oraz ewaluację różnych klasyfikatorów uczenia maszynowego, aby znaleźć najbardziej efektywne podejście do przewidywania niewydolności serca.\n\nGłówne funkcje:\n- Eksploracja danych: Kompleksowa EDA z jednowymiarową i wielowymiarową analizą czynników chorób serca\n- Inżynieria cech: Przetwarzanie i transformacja cech dla optymalnej wydajności modelu\n- Wiele modeli klasyfikacyjnych: Implementacja różnych algorytmów ML, w tym:\n  - Regresji Logistycznej\n  - Drzew Decyzyjnych\n  - Random Forest\n  - XGBoost\n- Ewaluacja modeli: Analiza porównawcza modeli przy użyciu dokładności, precyzji, czułości i miary F1\n- Wizualizacja: Szczegółowa wizualizacja wzorców danych i metryk wydajności modeli",
+    technologies: ["Python", "Pandas", "Scikit-learn"],
+    githubUrl: "https://github.com/radekrzepka/heart-failure-prediction",
+    categories: [ProjectCategory.ML],
   },
 ];

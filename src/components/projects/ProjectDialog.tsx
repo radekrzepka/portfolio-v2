@@ -1,4 +1,4 @@
-import { ExternalLink, Github, X } from "lucide-react";
+import { ExternalLink, Github, X, Hammer } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -41,9 +41,16 @@ export function ProjectDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="custom-scrollbar max-h-[90vh] max-w-4xl overflow-y-auto p-4 sm:p-6">
         <div className="mb-4 flex items-center justify-between">
-          <DialogTitle className="p-0 text-2xl font-semibold">
-            {project.title}
-          </DialogTitle>
+          <div className="flex items-center gap-3">
+            <DialogTitle className="p-0 text-2xl font-semibold">
+              {project.title}
+            </DialogTitle>
+            {project.isInProgress && (
+              <span className="flex items-center gap-1 rounded-md bg-amber-500/90 px-2 py-1 text-xs font-medium text-white shadow-sm">
+                <Hammer className="h-3 w-3" />W trakcie realizacji
+              </span>
+            )}
+          </div>
           <DialogClose className="hover:bg-muted cursor-pointer rounded-full p-1 transition-colors">
             <X className="h-4 w-4" />
             <span className="sr-only">Close</span>

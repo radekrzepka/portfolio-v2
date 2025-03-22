@@ -2,6 +2,7 @@ import React from "react";
 import type { Project } from "@/data/projects";
 import { skills } from "@/data/skills";
 import type { IconType } from "react-icons";
+import { Hammer } from "lucide-react";
 
 interface ProjectCardContentProps {
   project: Project;
@@ -31,6 +32,11 @@ export function ProjectCardContent({
           alt={`${project.title} screenshot`}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
+        {project.isInProgress && (
+          <div className="absolute top-2 right-2 flex items-center gap-1 rounded-md bg-amber-500/90 px-2 py-1 text-xs font-medium text-white shadow-md backdrop-blur-sm">
+            <Hammer className="h-3 w-3" />W trakcie
+          </div>
+        )}
       </div>
       <div className="p-4">
         <h3 className="text-xl font-bold">{project.title}</h3>
