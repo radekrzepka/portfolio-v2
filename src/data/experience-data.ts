@@ -49,22 +49,6 @@ export const experiences: Experience[] = [
     ],
   },
   {
-    title: "Wsparcie informatyczne",
-    company: "Fizjofit",
-    period: "Czerwiec 2020 - Obecnie",
-    description:
-      "Zapewnienie wsparcia informatycznego dla firmy z branży fizjoterapeutycznej. Zarządzanie stroną internetową, tworzenie raportów oraz automatyzacja procesów.",
-    technologies: ["WordPress", "Excel", "Python"],
-    responsibilities: [
-      "Obsługa i edycja strony internetowej opartej na systemie WordPress",
-      "Tworzenie i zarządzanie raportami w programie Excel",
-      "Projektowanie i implementacja skryptów w języku Python do automatyzacji generowania raportów",
-      "Optymalizacja procesów pracy poprzez wdrażanie rozwiązań informatycznych",
-      "Bieżące wsparcie techniczne dla pracowników firmy",
-      "Aktualizacja i utrzymanie systemów informatycznych",
-    ],
-  },
-  {
     title: "Korepetytor matematyki",
     company: "Działalność własna",
     period: "2019 - Obecnie",
@@ -77,6 +61,22 @@ export const experiences: Experience[] = [
       "Diagnozowanie trudności w nauce i dostosowywanie metod nauczania do stylu uczenia się ucznia",
       "Regularne monitorowanie postępów uczniów i udzielanie konstruktywnej informacji zwrotnej",
       "Budowanie motywacji i pewności siebie uczniów w zakresie umiejętności matematycznych",
+    ],
+  },
+  {
+    title: "Wsparcie informatyczne",
+    company: "Fizjofit",
+    period: "Czerwiec 2020 - Lipiec 2025",
+    description:
+      "Zapewnienie wsparcia informatycznego dla firmy z branży fizjoterapeutycznej. Zarządzanie stroną internetową, tworzenie raportów oraz automatyzacja procesów.",
+    technologies: ["WordPress", "Excel", "Python"],
+    responsibilities: [
+      "Obsługa i edycja strony internetowej opartej na systemie WordPress",
+      "Tworzenie i zarządzanie raportami w programie Excel",
+      "Projektowanie i implementacja skryptów w języku Python do automatyzacji generowania raportów",
+      "Optymalizacja procesów pracy poprzez wdrażanie rozwiązań informatycznych",
+      "Bieżące wsparcie techniczne dla pracowników firmy",
+      "Aktualizacja i utrzymanie systemów informatycznych",
     ],
   },
 ];
