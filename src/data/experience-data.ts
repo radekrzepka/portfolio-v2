@@ -11,7 +11,7 @@ export const experiences: Experience[] = [
   {
     title: "Software Developer",
     company: "Gorrion",
-    period: "Lipiec 2023 - Obecnie",
+    period: "Lipiec 2023 - Lipiec 2025",
     description:
       "Praca w dynamicznym zespole nad rozwojem nowoczesnych aplikacji webowych dla klientów z różnych branż. Implementacja rozwiązań full-stack z wykorzystaniem najnowszych technologii.",
     technologies: [
