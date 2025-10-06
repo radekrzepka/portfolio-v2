@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { projectCategoryConfig, ProjectCategory } from "@/data/category-config";
+import { ProjectCategory, projectCategoryConfig } from "@/data/category-config";
 
 interface Filter {
   name: string;
@@ -11,22 +11,6 @@ interface Filter {
 export function ProjectsFilter() {
   const [activeFilter, setActiveFilter] = useState<string>(ProjectCategory.ALL);
 
-  const handleFilterClick = (filter: string) => {
-    setActiveFilter(filter);
-
-    const projectCards = document.querySelectorAll(".project-card");
-    projectCards.forEach((card) => {
-      const categoriesAttr = card.getAttribute("data-categories");
-      const categories = categoriesAttr ? categoriesAttr.split(",") : [];
-
-      if (filter === ProjectCategory.ALL || categories.includes(filter)) {
-        card.classList.remove("hidden");
-      } else {
-        card.classList.add("hidden");
-      }
-    });
-  };
-
   const filters: Filter[] = Object.entries(projectCategoryConfig).map(
     ([value, config]) => ({
       value,
@@ -34,6 +18,28 @@ export function ProjectsFilter() {
       icon: config.icon,
     }),
   );
+
+  useEffect(() => {
+    const projectCards = document.querySelectorAll(".project-card");
+
+    projectCards.forEach((card) => {
+      const categoriesAttr = card.getAttribute("data-categories");
+      const categories = categoriesAttr ? categoriesAttr.split(",") : [];
+
+      if (
+        activeFilter === ProjectCategory.ALL ||
+        categories.includes(activeFilter)
+      ) {
+        card.classList.remove("hidden");
+      } else {
+        card.classList.add("hidden");
+      }
+    });
+  }, [activeFilter]);
+
+  const handleFilterClick = (filterValue: string) => {
+    setActiveFilter(filterValue);
+  };
 
   return (
     <div className="mb-8 flex flex-wrap gap-2">

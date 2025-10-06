@@ -1,7 +1,7 @@
 ---
 import { ExperienceTimeline } from "@/components/experience";
-import Layout from "@/layout/Layout.astro";
-import PageContainer from "@/layout/PageContainer.astro";
+import Layout from "@/layouts/Layout.astro";
+import PageContainer from "@/layouts/PageContainer.astro";
 ---
 
 <Layout
@@ -10,7 +10,7 @@ import PageContainer from "@/layout/PageContainer.astro";
 >
   <PageContainer title="Doświadczenie">
     <div class="max-w-3xl mx-auto">
-      <ExperienceTimeline client:load />
+      <ExperienceTimeline client:visible />
     </div>
   </PageContainer>
 </Layout>

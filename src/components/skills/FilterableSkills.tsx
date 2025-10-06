@@ -8,7 +8,9 @@ export function FilterableSkills() {
   const filteredSkills = skills.filter(
     (skill) =>
       !skill.hideInSkills &&
-      (activeFilter === SkillCategory.ALL || skill.category === activeFilter),
+      (activeFilter === SkillCategory.ALL
+        ? skill.category !== SkillCategory.PLANNING_TO_LEARN
+        : skill.category === activeFilter),
   );
 
   return (

@@ -51,7 +51,7 @@ export const experiences: Experience[] = [
   {
     title: "Korepetytor matematyki",
     company: "Działalność własna",
-    period: "2019 - Obecnie",
+    period: "2018 - Obecnie",
     description:
       "Prowadzenie indywidualnych zajęć z matematyki dla uczniów szkół podstawowych i średnich. Przygotowanie do egzaminów ósmoklasisty i maturalnych.",
     responsibilities: [

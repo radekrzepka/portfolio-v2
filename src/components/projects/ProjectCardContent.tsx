@@ -1,4 +1,3 @@
-import React from "react";
 import type { Project } from "@/data/projects";
 import { skills } from "@/data/skills";
 import type { IconType } from "react-icons";
@@ -30,6 +29,10 @@ export function ProjectCardContent({
               : "/placeholder.svg"
           }
           alt={`${project.title} screenshot`}
+          loading="lazy"
+          decoding="async"
+          width={800}
+          height={450}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
         {project.isInProgress && (

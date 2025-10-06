@@ -2,10 +2,9 @@
 import { Github, Linkedin, Mail } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button";
-import PageContainer from "@/layout/PageContainer.astro";
+import Layout from "@/layouts/Layout.astro";
+import PageContainer from "@/layouts/PageContainer.astro";
 import { cn } from "@/lib/utils";
-
-import Layout from "../layout/Layout.astro";
 
 const contactItems = [
   {
@@ -25,16 +24,6 @@ const contactItems = [
     description: "Połącz się ze mną na LinkedIn",
     href: "https://www.linkedin.com/in/radosław-rzepka-a87157248",
     buttonText: "Profil LinkedIn",
-    buttonVariant: "outline" as const,
-    isExternal: true,
-  },
-  {
-    id: "github",
-    icon: Github,
-    title: "GitHub",
-    description: "Zobacz moje projekty",
-    href: "https://github.com/radekrzepka",
-    buttonText: "Profil GitHub",
     buttonVariant: "outline" as const,
     isExternal: true,
   },
