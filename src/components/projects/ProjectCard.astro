@@ -15,5 +15,5 @@ const { project } = Astro.props;
   data-project-id={project.id}
   data-categories={project.categories.join(",")}
 >
-  <ProjectCardComponent project={project} client:load />
+  <ProjectCardComponent project={project} client:visible />
 </div>

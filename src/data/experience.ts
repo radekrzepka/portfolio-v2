@@ -1,4 +1,4 @@
-export const LEARNING_START_YEAR = 2020;
+export const LEARNING_START_YEAR = 2019;
 
 export const COMMERCIAL_START_YEAR = 2023;
 

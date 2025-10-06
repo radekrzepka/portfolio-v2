@@ -5,6 +5,7 @@ import {
   Code,
   Cog,
   Database,
+  Lightbulb,
   Server,
   TestTube,
   Wrench,
@@ -28,10 +29,13 @@ export const skillCategoryConfig = {
   [SkillCategory.DEVOPS]: { name: "DevOps", icon: Cloud },
   [SkillCategory.TOOLS]: { name: "Narzędzia", icon: Wrench },
   [SkillCategory.TEST]: { name: "Testing", icon: TestTube },
-  [SkillCategory.ML]: { name: "Machine Learning", icon: Brain },
   [SkillCategory.CURRENTLY_LEARNING]: {
     name: "W trakcie nauki",
     icon: BookOpen,
+  },
+  [SkillCategory.PLANNING_TO_LEARN]: {
+    name: "Planuję nauczyć się",
+    icon: Lightbulb,
   },
 };
 

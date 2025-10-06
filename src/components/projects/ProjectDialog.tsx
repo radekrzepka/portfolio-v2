@@ -66,7 +66,11 @@ export function ProjectDialog({
                     <div className="p-1">
                       <img
                         src={image}
-                        alt={`${project.title} screenshot`}
+                        alt={`${project.title} screenshot ${index + 1}`}
+                        loading="lazy"
+                        decoding="async"
+                        width={1200}
+                        height={675}
                         className="h-auto w-full rounded-md object-cover"
                       />
                     </div>
