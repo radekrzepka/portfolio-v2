@@ -1,10 +1,9 @@
 import {
-  BookOpen,
-  Brain,
   Cloud,
   Code,
   Cog,
   Database,
+  FileCode,
   Lightbulb,
   Server,
   TestTube,
@@ -21,18 +20,21 @@ export enum ProjectCategory {
   OTHER = "other",
 }
 
-export const skillCategoryConfig = {
+export const skillCategoryConfig: Partial<
+  Record<SkillCategory, { name: string; icon: typeof Cog }>
+> = {
   [SkillCategory.ALL]: { name: "Wszystkie", icon: Cog },
+  [SkillCategory.LANGUAGE]: { name: "Języki", icon: FileCode },
   [SkillCategory.FRONTEND]: { name: "Frontend", icon: Code },
   [SkillCategory.BACKEND]: { name: "Backend", icon: Server },
   [SkillCategory.DATABASE]: { name: "Database", icon: Database },
   [SkillCategory.DEVOPS]: { name: "DevOps", icon: Cloud },
   [SkillCategory.TOOLS]: { name: "Narzędzia", icon: Wrench },
   [SkillCategory.TEST]: { name: "Testing", icon: TestTube },
-  [SkillCategory.CURRENTLY_LEARNING]: {
-    name: "W trakcie nauki",
-    icon: BookOpen,
-  },
+  // [SkillCategory.CURRENTLY_LEARNING]: {
+  //   name: "W trakcie nauki",
+  //   icon: BookOpen,
+  // },
   [SkillCategory.PLANNING_TO_LEARN]: {
     name: "Planuję nauczyć się",
     icon: Lightbulb,
@@ -43,6 +45,6 @@ export const projectCategoryConfig = {
   [ProjectCategory.ALL]: { name: "Wszystkie", icon: Cog },
   [ProjectCategory.FRONTEND]: { name: "Frontend", icon: Code },
   [ProjectCategory.BACKEND]: { name: "Backend", icon: Server },
-  [ProjectCategory.ML]: { name: "Machine Learning", icon: Brain },
+  // [ProjectCategory.ML]: { name: "Machine Learning", icon: Brain },
   [ProjectCategory.OTHER]: { name: "Inne", icon: Wrench },
 };

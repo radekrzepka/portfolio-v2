@@ -2,7 +2,6 @@ import type { IconType } from "react-icons";
 import { FaFileExcel } from "react-icons/fa";
 import {
   SiAmazonwebservices,
-  SiApachespark,
   SiAstro,
   SiCss3,
   SiDocker,
@@ -18,13 +17,10 @@ import {
   SiHtml5,
   SiJavascript,
   SiJest,
-  SiJupyter,
-  SiKeras,
   SiNestjs,
   SiNextdotjs,
   SiNodedotjs,
   SiNumpy,
-  SiOpencv,
   SiPandas,
   SiPostgresql,
   SiPrettier,
@@ -41,7 +37,6 @@ import {
   SiStrapi,
   SiStripe,
   SiTailwindcss,
-  SiTensorflow,
   SiTestcafe,
   SiTrpc,
   SiTurborepo,
@@ -53,6 +48,7 @@ import {
 
 export enum SkillCategory {
   ALL = "all",
+  LANGUAGE = "language",
   FRONTEND = "frontend",
   BACKEND = "backend",
   DATABASE = "database",
@@ -74,6 +70,19 @@ export interface Skill {
 
 export const skills: Skill[] = [
   {
+    name: "TypeScript",
+    category: SkillCategory.LANGUAGE,
+    icon: SiTypescript,
+    color: "#3178C6",
+    isFeatured: true,
+  },
+  {
+    name: "JavaScript",
+    category: SkillCategory.LANGUAGE,
+    icon: SiJavascript,
+    color: "#F7DF1E",
+  },
+  {
     name: "React",
     category: SkillCategory.FRONTEND,
     icon: SiReact,
@@ -92,19 +101,6 @@ export const skills: Skill[] = [
     category: SkillCategory.FRONTEND,
     icon: SiAstro,
     color: "#FF5D01",
-  },
-  {
-    name: "TypeScript",
-    category: SkillCategory.FRONTEND,
-    icon: SiTypescript,
-    color: "#3178C6",
-    isFeatured: true,
-  },
-  {
-    name: "JavaScript",
-    category: SkillCategory.FRONTEND,
-    icon: SiJavascript,
-    color: "#F7DF1E",
   },
   {
     name: "HTML5",
@@ -302,7 +298,7 @@ export const skills: Skill[] = [
   },
   {
     name: "Go",
-    category: SkillCategory.CURRENTLY_LEARNING,
+    category: SkillCategory.PLANNING_TO_LEARN,
     icon: SiGo,
     color: "#00ADD8",
   },
@@ -313,22 +309,10 @@ export const skills: Skill[] = [
     color: "#3776AB",
   },
   {
-    name: "PyTorch",
+    name: "NumPy",
     category: SkillCategory.PLANNING_TO_LEARN,
-    icon: SiPytorch,
-    color: "#EE4C2C",
-  },
-  {
-    name: "TensorFlow",
-    category: SkillCategory.PLANNING_TO_LEARN,
-    icon: SiTensorflow,
-    color: "#FF6F00",
-  },
-  {
-    name: "Keras",
-    category: SkillCategory.PLANNING_TO_LEARN,
-    icon: SiKeras,
-    color: "#D00000",
+    icon: SiNumpy,
+    color: "#013243",
   },
   {
     name: "Pandas",
@@ -337,16 +321,40 @@ export const skills: Skill[] = [
     color: "#150458",
   },
   {
-    name: "NumPy",
+    name: "Matplotlib / Seaborn",
     category: SkillCategory.PLANNING_TO_LEARN,
-    icon: SiNumpy,
-    color: "#013243",
+    icon: SiPython,
+    color: "#11557C",
   },
   {
-    name: "scikit-learn",
+    name: "Scikit-Learn",
     category: SkillCategory.PLANNING_TO_LEARN,
     icon: SiScikitlearn,
     color: "#F7931E",
+  },
+  {
+    name: "PyTorch",
+    category: SkillCategory.PLANNING_TO_LEARN,
+    icon: SiPytorch,
+    color: "#EE4C2C",
+  },
+  {
+    name: "XGBoost",
+    category: SkillCategory.PLANNING_TO_LEARN,
+    icon: SiPython,
+    color: "#0384B5",
+  },
+  {
+    name: "FastAPI",
+    category: SkillCategory.PLANNING_TO_LEARN,
+    icon: SiPython,
+    color: "#009688",
+  },
+  {
+    name: "Pinecone",
+    category: SkillCategory.PLANNING_TO_LEARN,
+    icon: SiPython,
+    color: "#4300FF",
   },
   {
     name: "Rust",

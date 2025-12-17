@@ -3,28 +3,31 @@ import { skillCategoryConfig } from "@/data/category-config";
 import { SkillCategory, skills } from "@/data/skills";
 
 const categoryOrder = [
+  SkillCategory.LANGUAGE,
   SkillCategory.FRONTEND,
   SkillCategory.BACKEND,
   SkillCategory.DATABASE,
   SkillCategory.DEVOPS,
   SkillCategory.TOOLS,
   SkillCategory.TEST,
-  SkillCategory.CURRENTLY_LEARNING,
+  // SkillCategory.CURRENTLY_LEARNING,
   SkillCategory.PLANNING_TO_LEARN,
 ];
 
-const skillCategories = categoryOrder.map((category) => {
-  const { name, icon } = skillCategoryConfig[category];
-  const filteredSkills = skills.filter(
-    (skill) => skill.category === category && !skill.hideInSkills,
-  );
+const skillCategories = categoryOrder
+  .filter((category) => skillCategoryConfig[category])
+  .map((category) => {
+    const { name, icon } = skillCategoryConfig[category]!;
+    const filteredSkills = skills.filter(
+      (skill) => skill.category === category && !skill.hideInSkills,
+    );
 
-  return {
-    name,
-    icon,
-    skills: filteredSkills,
-  };
-});
+    return {
+      name,
+      icon,
+      skills: filteredSkills,
+    };
+  });
 ---
 
 <div class="space-y-16">
