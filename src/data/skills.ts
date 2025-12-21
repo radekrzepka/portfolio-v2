@@ -37,6 +37,7 @@ import {
   SiStrapi,
   SiStripe,
   SiTailwindcss,
+  SiTerraform,
   SiTestcafe,
   SiTrpc,
   SiTurborepo,
@@ -251,6 +252,13 @@ export const skills: Skill[] = [
     icon: SiGithubactions,
     color: "#2088FF",
     isFeatured: true,
+  },
+  {
+    name: "Terraform",
+    category: SkillCategory.DEVOPS,
+    icon: SiTerraform,
+    color: "#7B42BC",
+    hideInSkills: true,
   },
   {
     name: "Git",

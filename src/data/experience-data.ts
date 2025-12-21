@@ -9,6 +9,28 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
+    title: "Fullstack Developer",
+    company: "Devopsbay",
+    period: "Wrzesień 2025 - Obecnie",
+    description:
+      "Praca nad migracją serwisów z architektury monolitycznej do rozproszonej w chmurze AWS. Rozwój nowych API i integracji z wykorzystaniem technologii serverless.",
+    technologies: [
+      "TypeScript",
+      "Node.js",
+      "AWS",
+      "Terraform",
+      "GitHub Actions",
+      "Vitest",
+    ],
+    responsibilities: [
+      "Migracja serwisu z monolitu Ruby do architektury opartej na AWS Lambda",
+      "Tworzenie nowego API oraz konsumentów powiadomień AWS SNS do integracji z istniejącym systemem",
+      "Stopniowe zastępowanie starych serwisów z równoległym działaniem nowych i legacy systemów",
+      "Pisanie i utrzymanie testów jednostkowych oraz integracyjnych przy użyciu Vitest",
+      "Współpraca przy planowaniu migracji zapewniającej kompatybilność wsteczną i niezawodność systemu",
+    ],
+  },
+  {
     title: "Software Developer",
     company: "Gorrion",
     period: "Lipiec 2023 - Lipiec 2025",
@@ -35,6 +57,7 @@ export const experiences: Experience[] = [
       "Turborepo",
       "Jest",
       "Playwright",
+      "GitHub Actions",
     ],
     responsibilities: [
       "Projektowanie i implementacja interfejsów użytkownika z wykorzystaniem React, Next.js i TypeScript",
