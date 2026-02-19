@@ -1,29 +1,27 @@
 ---
 import SectionContainer from "@/layouts/SectionContainer.astro";
+import { COMMERCIAL_START_YEAR } from "@/lib/experience";
+import { useTranslations } from "@/i18n";
 
-import { COMMERCIAL_START_YEAR } from "../../data/experience";
+interface Props {
+  locale: "en" | "pl";
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
 ---
 
 <SectionContainer>
-  <h2 class="text-3xl font-bold tracking-tighter mb-6">O mnie</h2>
+  <h2 class="text-3xl font-bold tracking-tighter mb-6">{t("about.title")}</h2>
   <div class="space-y-4 text-muted-foreground">
     <p>
-      Od {COMMERCIAL_START_YEAR} roku zajmuję się profesjonalnie tworzeniem aplikacji
-      webowych. Moje doświadczenie obejmuje budowanie skalowalnych rozwiązań, które
-      skutecznie odpowiadają na potrzeby biznesowe i zapewniają pozytywne doświadczenia
-      użytkownikom.
+      {t("about.paragraph1", { year: String(COMMERCIAL_START_YEAR) })}
     </p>
     <p>
-      W mojej pracy łączę wiedzę techniczną z praktycznym podejściem do
-      rozwiązywania problemów. Stale rozwijam swoje umiejętności, śledząc
-      najnowsze trendy i technologie w świecie web developmentu, co pozwala mi
-      dostarczać nowoczesne i wydajne rozwiązania.
+      {t("about.paragraph2")}
     </p>
     <p>
-      Cenię sobie pracę zespołową i komunikację. Wierzę, że najlepsze projekty
-      powstają dzięki efektywnej współpracy, wymianie wiedzy i otwartości na
-      różne perspektywy. Zawsze dążę do tworzenia kodu, który jest nie tylko
-      funkcjonalny, ale również czytelny i łatwy w utrzymaniu.
+      {t("about.paragraph3")}
     </p>
   </div>
 </SectionContainer>

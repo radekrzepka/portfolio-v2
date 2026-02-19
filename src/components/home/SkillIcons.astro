@@ -1,7 +1,7 @@
 ---
-import type { Skill } from "@/data/skills";
+import type { Skill } from "@/lib/skills";
 
-import { skills } from "@/data/skills";
+import { skills } from "@/lib/skills";
 
 const featuredSkills: Skill[] = skills.filter(
   (skill) => skill.isFeatured && !skill.hideInSkills,

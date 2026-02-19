@@ -1,5 +1,11 @@
 ---
 import { ProjectsFilter as ProjectsFilterComponent } from "./ProjectsFilter";
+
+interface Props {
+  locale: "en" | "pl";
+}
+
+const { locale } = Astro.props;
 ---
 
-<ProjectsFilterComponent client:load />
+<ProjectsFilterComponent locale={locale} client:load />

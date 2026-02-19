@@ -1,5 +1,12 @@
 ---
-import { certifications } from "@/data/certifications";
+import { getCertifications } from "@/i18n";
+
+interface Props {
+  locale: "en" | "pl";
+}
+
+const { locale } = Astro.props;
+const certifications = getCertifications(locale);
 ---
 
 <div class="mt-4">

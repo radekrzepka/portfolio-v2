@@ -1,16 +1,25 @@
 ---
 import PageHeader from "@/layouts/PageHeader.astro";
+import { useTranslations, type UIKey } from "@/i18n";
 
 interface Props {
-  title: string;
+  locale: string;
+  title?: string;
+  titleKey?: UIKey;
   description?: string;
+  descriptionKey?: UIKey;
 }
 
-const { title, description } = Astro.props;
+const { locale, title, titleKey, description, descriptionKey } = Astro.props;
+const t = useTranslations(locale as "en" | "pl");
+const resolvedTitle = titleKey ? t(titleKey) : title ?? "";
+const resolvedDescription = descriptionKey
+  ? t(descriptionKey)
+  : description;
 ---
 
 <div class="container mx-auto px-4 py-24 md:py-32">
-  <PageHeader title={title} description={description} />
+  <PageHeader title={resolvedTitle} description={resolvedDescription} />
 
   <div class="content-container animate-fade-in-delay">
     <slot />

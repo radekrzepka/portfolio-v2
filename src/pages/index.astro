@@ -1,21 +1,12 @@
 ---
-import AboutMeSection from "@/components/home/AboutMeSection.astro";
-import FeaturedCertifications from "@/components/home/FeaturedCertifications.astro";
-import FeaturedProjects from "@/components/home/FeaturedProjects.astro";
-import SkillsSection from "@/components/home/SkillsSection.astro";
+import HomePage from "@/components/pages/Home.astro";
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/modules/Hero.astro";
 ---
 
 <Layout
-  title="Radosław Rzepka | Full-stack Developer"
-  description="Full-stack developer specjalizujący się w React, Next.js i TypeScript. Tworzę wydajne i intuicyjne aplikacje webowe, które łączą funkcjonalność z dobrym doświadczeniem użytkownika."
+  title="Radosław Rzepka | Full-stack Engineer"
+  description="Full-stack engineer specializing in React, Next.js, and TypeScript. I build performant and intuitive web applications that combine functionality with a great user experience."
+  locale="en"
 >
-  <div class="flex flex-col w-full">
-    <Hero />
-    <AboutMeSection />
-    <SkillsSection />
-    <FeaturedProjects />
-    <FeaturedCertifications />
-  </div>
+  <HomePage locale="en" />
 </Layout>

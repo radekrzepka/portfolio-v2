@@ -1,14 +1,23 @@
 ---
 import ProjectCard from "@/components/projects/ProjectCard.astro";
 import ProjectsFilter from "@/components/projects/ProjectsFilter.astro";
-import { projects } from "@/data/projects";
+import { getProjects } from "@/i18n";
+
+interface Props {
+  locale: "en" | "pl";
+}
+
+const { locale } = Astro.props;
+const projects = getProjects(locale);
 ---
 
-<ProjectsFilter />
+<ProjectsFilter locale={locale} />
 
 <div
   id="projects-grid"
   class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
 >
-  {projects.map((project) => <ProjectCard project={project} />)}
+  {projects.map((project) => (
+    <ProjectCard project={project} locale={locale} />
+  ))}
 </div>

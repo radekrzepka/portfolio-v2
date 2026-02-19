@@ -1,7 +1,16 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
 import { FooterCertifications } from "@/components/certifications";
-import { navLinks, socialLinks } from "@/data/navigation";
+import { getNavLinks, getSocialLinks, useTranslations } from "@/i18n";
 
+interface Props {
+  locale: "en" | "pl";
+}
+
+const { locale } = Astro.props;
+const navLinks = getNavLinks(locale);
+const socialLinks = getSocialLinks(locale);
+const t = useTranslations(locale);
 const currentYear = new Date().getFullYear();
 ---
 
@@ -11,8 +20,7 @@ const currentYear = new Date().getFullYear();
       <div class="space-y-4">
         <h3 class="font-bold text-lg">Radosław Rzepka</h3>
         <p class="text-sm text-muted-foreground">
-          Full-stack developer specjalizujący się w Next.js, React, TypeScript,
-          AWS i Nest.js.
+          {t("footer.tagline")}
         </p>
         <div class="flex space-x-4">
           {
@@ -32,13 +40,13 @@ const currentYear = new Date().getFullYear();
       </div>
 
       <div class="space-y-4">
-        <h3 class="font-bold text-lg">Nawigacja</h3>
+        <h3 class="font-bold text-lg">{t("footer.navigation")}</h3>
         <ul class="space-y-2 text-sm">
           {
-            navLinks.map(({ href, label }) => (
+            navLinks.map(({ path, label }) => (
               <li>
                 <a
-                  href={href}
+                  href={getRelativeLocaleUrl(locale, path)}
                   class="text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {label}
@@ -50,26 +58,26 @@ const currentYear = new Date().getFullYear();
       </div>
 
       <div class="space-y-4">
-        <h3 class="font-bold text-lg">Kontakt</h3>
+        <h3 class="font-bold text-lg">{t("footer.contact")}</h3>
         <p class="text-sm text-muted-foreground">
-          Zainteresowany współpracą? Skontaktuj się ze mną.
+          {t("footer.contactText")}
         </p>
         <a
-          href="/contact"
+          href={getRelativeLocaleUrl(locale, "contact")}
           class="inline-block text-sm font-medium text-primary hover:underline"
         >
-          Napisz do mnie
+          {t("footer.writeToMe")}
         </a>
       </div>
 
       <div class="space-y-4">
-        <h3 class="font-bold text-lg">Certyfikaty</h3>
-        <FooterCertifications />
+        <h3 class="font-bold text-lg">{t("footer.certifications")}</h3>
+        <FooterCertifications locale={locale} />
       </div>
     </div>
 
     <div class="mt-12 pt-6 border-t text-center text-sm text-muted-foreground">
-      <p>© {currentYear} Radosław Rzepka. Wszelkie prawa zastrzeżone.</p>
+      <p>© {currentYear} Radosław Rzepka. {t("footer.rights")}</p>
     </div>
   </div>
 </footer>

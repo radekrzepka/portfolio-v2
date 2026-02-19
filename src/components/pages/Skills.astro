@@ -1,0 +1,23 @@
+---
+import { Certifications } from "@/components/certifications";
+import { FilterableSkills } from "@/components/skills";
+import PageContainer from "@/layouts/PageContainer.astro";
+import type { Locale } from "@/i18n";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<PageContainer
+  locale={locale}
+  titleKey="skills.pageTitle"
+  descriptionKey="skills.description"
+>
+  <div class="flex flex-col gap-32">
+    <FilterableSkills locale={locale} client:visible />
+    <Certifications locale={locale} />
+  </div>
+</PageContainer>

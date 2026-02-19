@@ -1,13 +1,14 @@
 ---
-import type { Project } from "@/data/projects";
+import type { Project } from "@/i18n";
 
 import { ProjectCardComponent } from "./ProjectCardComponent";
 
 interface Props {
   project: Project;
+  locale: "en" | "pl";
 }
 
-const { project } = Astro.props;
+const { project, locale } = Astro.props;
 ---
 
 <div
@@ -15,5 +16,5 @@ const { project } = Astro.props;
   data-project-id={project.id}
   data-categories={project.categories.join(",")}
 >
-  <ProjectCardComponent project={project} client:visible />
+  <ProjectCardComponent project={project} locale={locale} client:visible />
 </div>

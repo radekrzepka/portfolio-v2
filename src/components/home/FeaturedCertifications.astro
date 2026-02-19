@@ -1,8 +1,14 @@
 ---
 import { Certifications } from "@/components/certifications";
 import SectionContainer from "@/layouts/SectionContainer.astro";
+
+interface Props {
+  locale: "en" | "pl";
+}
+
+const { locale } = Astro.props;
 ---
 
 <SectionContainer>
-  <Certifications />
+  <Certifications locale={locale} />
 </SectionContainer>

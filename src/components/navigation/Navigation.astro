@@ -1,19 +1,30 @@
 ---
 import { Menu, X } from "lucide-react";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 import { Button } from "@/components/ui/button";
-import { navLinks } from "@/data/navigation";
-
+import { getNavLinks, useTranslations } from "@/i18n";
+import LocaleSwitcher from "./LocaleSwitcher.astro";
 import { ThemeToggle } from "./ThemeToggle";
 
-const currentPath = Astro.url.pathname;
+interface Props {
+  locale: "en" | "pl";
+}
+
+const { locale } = Astro.props;
+const navLinks = getNavLinks(locale);
+const pathname = Astro.url.pathname;
+const pathWithoutLocale = pathname.startsWith("/pl")
+  ? pathname.replace(/^\/pl\/?/, "") || ""
+  : pathname.replace(/^\//, "") || "";
+const t = useTranslations(locale);
 ---
 
 <header
   class="fixed top-0 w-full z-50 transition-all duration-300 bg-background/80 backdrop-blur-md shadow-sm"
 >
   <div class="flex h-16 items-center justify-between px-4 md:px-6">
-    <a href="/" class="font-bold text-xl flex items-center gap-2">
+    <a href={getRelativeLocaleUrl(locale, "")} class="font-bold text-xl flex items-center gap-2">
       <span class="text-primary">Radosław</span>
       <span>Rzepka</span>
     </a>
@@ -21,13 +32,14 @@ const currentPath = Astro.url.pathname;
     <nav class="hidden md:flex items-center gap-6">
       {
         navLinks.map((item) => {
+          const href = getRelativeLocaleUrl(locale, item.path);
           const isActive =
-            currentPath === item.href ||
-            (item.href !== "/" && currentPath.startsWith(item.href));
+            (item.path === "" && (pathname === "/" || pathname === "/pl" || pathname === "/pl/")) ||
+            (item.path !== "" && pathWithoutLocale === item.path);
 
           return (
             <a
-              href={item.href}
+              href={href}
               class="text-sm font-medium transition-colors hover:text-primary relative py-2 nav-link"
               aria-current={isActive ? "page" : undefined}
               data-active={isActive}
@@ -37,6 +49,7 @@ const currentPath = Astro.url.pathname;
           );
         })
       }
+      <LocaleSwitcher currentLocale={locale} />
       <ThemeToggle client:load />
     </nav>
 
@@ -46,7 +59,7 @@ const currentPath = Astro.url.pathname;
         id="mobile-menu-toggle"
         variant="ghost"
         size="icon"
-        aria-label="Przełącz menu"
+        aria-label={t("aria.toggleMenu")}
         aria-expanded="false"
       >
         <Menu className="h-6 w-6" id="menu-icon" />
@@ -62,7 +75,7 @@ const currentPath = Astro.url.pathname;
 >
   <div class="flex flex-col h-full w-full">
     <div class="flex items-center justify-between h-16 px-4 border-b w-full">
-      <a href="/" class="font-bold text-xl flex items-center gap-2">
+      <a href={getRelativeLocaleUrl(locale, "")} class="font-bold text-xl flex items-center gap-2">
         <span class="text-primary">Radosław</span>
         <span>Rzepka</span>
       </a>
@@ -70,7 +83,7 @@ const currentPath = Astro.url.pathname;
         id="mobile-menu-close"
         variant="ghost"
         size="icon"
-        aria-label="Zamknij menu"
+        aria-label={t("aria.closeMenu")}
       >
         <X className="h-6 w-6" />
       </Button>
@@ -80,13 +93,14 @@ const currentPath = Astro.url.pathname;
       <div class="flex flex-col items-center gap-12 w-full">
         {
           navLinks.map((item) => {
+            const href = getRelativeLocaleUrl(locale, item.path);
             const isActive =
-              currentPath === item.href ||
-              (item.href !== "/" && currentPath.startsWith(item.href));
+              (item.path === "" && (pathname === "/" || pathname === "/pl" || pathname === "/pl/")) ||
+              (item.path !== "" && pathWithoutLocale === item.path);
 
             return (
               <a
-                href={item.href}
+                href={href}
                 class="text-3xl font-medium transition-all duration-300 hover:text-primary w-full text-center py-2 mobile-nav-link"
                 aria-current={isActive ? "page" : undefined}
                 data-active={isActive}
@@ -96,6 +110,10 @@ const currentPath = Astro.url.pathname;
             );
           })
         }
+        <div class="flex items-center gap-4 mt-4">
+          <LocaleSwitcher currentLocale={locale} />
+          <ThemeToggle client:load />
+        </div>
       </div>
     </div>
   </div>

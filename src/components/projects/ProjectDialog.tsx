@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
-  DialogHeader,
   DialogTitle,
   DialogClose,
 } from "@/components/ui/dialog";
@@ -14,22 +13,64 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import type { Project, Credential } from "@/data/projects";
-import { skills } from "@/data/skills";
+import type { Project, Credential } from "@/i18n";
+import { skills } from "@/lib/skills";
 import type { IconType } from "react-icons";
 import "./project-dialog.css";
 
+const uiStrings: Record<
+  "en" | "pl",
+  {
+    description: string;
+    technologies: string;
+    demo: string;
+    sourceCode: string;
+    inProgress: string;
+    testCredentials: string;
+    username: string;
+    password: string;
+    close: string;
+  }
+> = {
+  en: {
+    description: "Description",
+    technologies: "Technologies",
+    demo: "Demo",
+    sourceCode: "Source code",
+    inProgress: "In progress",
+    testCredentials: "Test credentials",
+    username: "Username",
+    password: "Password",
+    close: "Close",
+  },
+  pl: {
+    description: "Opis",
+    technologies: "Technologie",
+    demo: "Demo",
+    sourceCode: "Kod źródłowy",
+    inProgress: "W trakcie realizacji",
+    testCredentials: "Dane testowe",
+    username: "Nazwa użytkownika",
+    password: "Hasło",
+    close: "Zamknij",
+  },
+};
+
 interface ProjectDialogProps {
   project: Project;
+  locale: "en" | "pl";
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
 }
 
 export function ProjectDialog({
   project,
+  locale,
   open = false,
   onOpenChange,
 }: ProjectDialogProps) {
+  const t = uiStrings[locale];
+
   const findSkillIcon = (techName: string) => {
     const skill = skills.find(
       (s) => s.name.toLowerCase() === techName.toLowerCase(),
@@ -47,13 +88,14 @@ export function ProjectDialog({
             </DialogTitle>
             {project.isInProgress && (
               <span className="flex items-center gap-1 rounded-md bg-amber-500/90 px-2 py-1 text-xs font-medium text-white shadow-sm">
-                <Hammer className="h-3 w-3" />W trakcie realizacji
+                <Hammer className="h-3 w-3" />
+                {t.inProgress}
               </span>
             )}
           </div>
           <DialogClose className="hover:bg-muted cursor-pointer rounded-full p-1 transition-colors">
             <X className="h-4 w-4" />
-            <span className="sr-only">Close</span>
+            <span className="sr-only">{t.close}</span>
           </DialogClose>
         </div>
 
@@ -61,7 +103,7 @@ export function ProjectDialog({
           <div className="mb-4 overflow-hidden rounded-lg">
             <Carousel className="w-full">
               <CarouselContent>
-                {project.images.map((image, index) => (
+                {project.images.map((image: string, index: number) => (
                   <CarouselItem key={index}>
                     <div className="p-1">
                       <img
@@ -88,16 +130,16 @@ export function ProjectDialog({
         )}
 
         <div className="mb-4">
-          <h3 className="mb-1 text-lg font-semibold">Opis</h3>
+          <h3 className="mb-1 text-lg font-semibold">{t.description}</h3>
           <p className="text-muted-foreground text-sm whitespace-pre-line">
             {project.longDescription}
           </p>
         </div>
 
         <div className="mb-4">
-          <h3 className="mb-1 text-lg font-semibold">Technologie</h3>
+          <h3 className="mb-1 text-lg font-semibold">{t.technologies}</h3>
           <div className="flex flex-wrap gap-2">
-            {project.technologies.map((tech, index) => {
+            {project.technologies.map((tech: string, index: number) => {
               const skillInfo = findSkillIcon(tech);
               const IconComponent = skillInfo?.icon;
 
@@ -127,7 +169,7 @@ export function ProjectDialog({
                 className="flex cursor-pointer items-center gap-2"
               >
                 <ExternalLink className="h-4 w-4" />
-                Demo
+                {t.demo}
               </Button>
             </a>
           )}
@@ -143,14 +185,14 @@ export function ProjectDialog({
                 className="flex cursor-pointer items-center gap-2"
               >
                 <Github className="h-4 w-4" />
-                Kod źródłowy
+                {t.sourceCode}
               </Button>
             </a>
           )}
 
           {project.credentials && project.credentials.length > 0 && (
             <div className="border-border bg-background mt-4 w-full rounded-md border p-3">
-              <h4 className="mb-1 font-medium">Dane testowe</h4>
+              <h4 className="mb-1 font-medium">{t.testCredentials}</h4>
               <div className="text-muted-foreground grid grid-cols-2 gap-2 text-sm">
                 {project.credentials.map((cred: Credential, index: number) => (
                   <div
@@ -158,11 +200,11 @@ export function ProjectDialog({
                     className="border-border col-span-2 grid grid-cols-2 gap-2 border-t pt-2 first:border-0 first:pt-0"
                   >
                     <div>
-                      Nazwa użytkownika:{" "}
+                      {t.username}:{" "}
                       <span className="font-mono">{cred.username}</span>
                     </div>
                     <div>
-                      Hasło: <span className="font-mono">{cred.password}</span>
+                      {t.password}: <span className="font-mono">{cred.password}</span>
                     </div>
                   </div>
                 ))}

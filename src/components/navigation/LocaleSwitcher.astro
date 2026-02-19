@@ -1,0 +1,58 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import type { Locale } from "@/i18n";
+
+interface Props {
+  currentLocale: Locale;
+}
+
+const { currentLocale } = Astro.props;
+const pathname = Astro.url.pathname;
+const currentPath = pathname.startsWith("/pl")
+  ? pathname.replace(/^\/pl\/?/, "") || ""
+  : pathname.replace(/^\//, "") || "";
+
+const enUrl = getRelativeLocaleUrl("en", currentPath);
+const plUrl = getRelativeLocaleUrl("pl", currentPath);
+---
+
+<div class="flex items-center gap-1" role="group" aria-label="Language">
+  <a
+    href={enUrl}
+    class={`flex items-center justify-center w-8 h-8 rounded-md text-sm font-medium transition-colors ${
+      currentLocale === "en"
+        ? "bg-primary text-primary-foreground"
+        : "text-muted-foreground hover:text-foreground hover:bg-muted"
+    }`}
+    aria-current={currentLocale === "en" ? "page" : undefined}
+    data-locale-switch
+  >
+    <span aria-hidden="true">EN</span>
+  </a>
+  <a
+    href={plUrl}
+    class={`flex items-center justify-center w-8 h-8 rounded-md text-sm font-medium transition-colors ${
+      currentLocale === "pl"
+        ? "bg-primary text-primary-foreground"
+        : "text-muted-foreground hover:text-foreground hover:bg-muted"
+    }`}
+    aria-current={currentLocale === "pl" ? "page" : undefined}
+    data-locale-switch
+  >
+    <span aria-hidden="true">PL</span>
+  </a>
+</div>
+
+<script>
+  document.querySelectorAll("[data-locale-switch]").forEach((el) => {
+    el.addEventListener("click", (e) => {
+      const href = (e.currentTarget as HTMLAnchorElement).getAttribute("href");
+      if (href) {
+        const locale = href.startsWith("/pl") ? "pl" : "en";
+        try {
+          localStorage.setItem("locale", locale);
+        } catch (_) {}
+      }
+    });
+  });
+</script>

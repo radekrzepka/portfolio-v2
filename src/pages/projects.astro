@@ -1,14 +1,12 @@
 ---
+import ProjectsPage from "@/components/pages/Projects.astro";
 import Layout from "@/layouts/Layout.astro";
-import PageContainer from "@/layouts/PageContainer.astro";
-import ProjectsSection from "@/modules/Projects.astro";
 ---
 
 <Layout
-  title="Projekty | Radosław Rzepka"
-  description="Przegląd moich projektów jako full-stack developer. Zobacz aplikacje i strony internetowe, które stworzyłem przy użyciu Next.js, React, TypeScript i innych technologii."
+  title="Projects | Radosław Rzepka"
+  description="Overview of my projects as a full-stack engineer. See applications and websites I've built using Next.js, React, TypeScript, and other technologies."
+  locale="en"
 >
-  <PageContainer title="Projekty">
-    <ProjectsSection />
-  </PageContainer>
+  <ProjectsPage locale="en" />
 </Layout>

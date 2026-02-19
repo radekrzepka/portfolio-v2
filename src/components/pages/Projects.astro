@@ -1,0 +1,19 @@
+---
+import PageContainer from "@/layouts/PageContainer.astro";
+import ProjectsSection from "@/modules/Projects.astro";
+import type { Locale } from "@/i18n";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<PageContainer
+  locale={locale}
+  titleKey="projects.title"
+  descriptionKey="projects.description"
+>
+  <ProjectsSection locale={locale} />
+</PageContainer>

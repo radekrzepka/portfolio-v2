@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ProjectCategory, projectCategoryConfig } from "@/data/category-config";
+import { ProjectCategory, getProjectCategoryConfig } from "@/i18n";
 
 interface Filter {
   name: string;
@@ -8,8 +8,13 @@ interface Filter {
   icon: React.ElementType;
 }
 
-export function ProjectsFilter() {
+interface ProjectsFilterProps {
+  locale: "en" | "pl";
+}
+
+export function ProjectsFilter({ locale }: ProjectsFilterProps) {
   const [activeFilter, setActiveFilter] = useState<string>(ProjectCategory.ALL);
+  const projectCategoryConfig = getProjectCategoryConfig(locale);
 
   const filters: Filter[] = Object.entries(projectCategoryConfig).map(
     ([value, config]) => ({

@@ -1,41 +1,48 @@
 ---
 import { ArrowRight } from "lucide-react";
-
+import { getRelativeLocaleUrl } from "astro:i18n";
 import { Button } from "@/components/ui/button";
 import {
   COMMERCIAL_EXPERIENCE_YEARS,
   LEARNING_EXPERIENCE_YEARS,
-} from "@/data/experience";
-import { socialLinks } from "@/data/navigation";
+} from "@/lib/experience";
+import { getSocialLinks, useTranslations } from "@/i18n";
 import SectionContainer from "@/layouts/SectionContainer.astro";
+
+interface Props {
+  locale: "en" | "pl";
+}
+
+const { locale } = Astro.props;
+const socialLinks = getSocialLinks(locale);
+const t = useTranslations(locale);
 ---
 
 <SectionContainer>
   <div class="mt-24 py-4">
     <div class="flex flex-col justify-center space-y-8">
       <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold animate-slide-up">
-        Cześć, jestem <span class="text-primary whitespace-nowrap"
+        {t("hero.greeting")} <span class="text-primary whitespace-nowrap"
           >Radosław Rzepka</span
         >
       </h1>
       <p
         class="text-xl text-muted-foreground max-w-[700px] animate-slide-up-delay"
       >
-        Jestem full-stack developerem z {COMMERCIAL_EXPERIENCE_YEARS}-letnim
-        doświadczeniem komercyjnym, a programowaniem zajmuję się od {
-          LEARNING_EXPERIENCE_YEARS
-        } lat. Na co dzień pracuję z React, Next.js, TypeScript i Node.js, tworząc
-        rozwiązania, które łączą funkcjonalność z dobrym doświadczeniem użytkownika.
+        {t("hero.intro", {
+          commercialYears: String(COMMERCIAL_EXPERIENCE_YEARS),
+          learningYears: String(LEARNING_EXPERIENCE_YEARS),
+        })}
       </p>
 
       <div class="flex flex-col sm:flex-row gap-3 pt-4 animate-fade-in-delay">
-        <a href="/projects">
+        <a href={getRelativeLocaleUrl(locale, "projects")}>
           <Button variant="default" size="lg">
-            Zobacz moje projekty <ArrowRight className="ml-2 h-4 w-4" />
+            {t("hero.projects")} <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </a>
-        <a href="/contact">
-          <Button variant="outline" size="lg"> Skontaktuj się </Button>
+        <a href={getRelativeLocaleUrl(locale, "contact")}>
+          <Button variant="outline" size="lg">{t("hero.contact")}</Button>
         </a>
       </div>
 

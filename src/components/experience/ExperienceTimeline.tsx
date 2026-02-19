@@ -1,10 +1,34 @@
 import { Briefcase, Calendar, ChevronDown, ChevronUp } from "lucide-react";
-import { experiences } from "@/data/experience-data";
 import { useState } from "react";
-import { skills } from "@/data/skills";
+import { skills } from "@/lib/skills";
+import { getExperiences } from "@/i18n";
 
-export function ExperienceTimeline() {
+const uiStrings: Record<
+  "en" | "pl",
+  { technologies: string; responsibilities: string; expand: string; collapse: string }
+> = {
+  en: {
+    technologies: "Technologies",
+    responsibilities: "Responsibilities",
+    expand: "Expand",
+    collapse: "Collapse",
+  },
+  pl: {
+    technologies: "Technologie",
+    responsibilities: "Zakres obowiązków",
+    expand: "Rozwiń",
+    collapse: "Zwiń",
+  },
+};
+
+interface ExperienceTimelineProps {
+  locale: "en" | "pl";
+}
+
+export function ExperienceTimeline({ locale }: ExperienceTimelineProps) {
   const [expandedItems, setExpandedItems] = useState<number[]>([0]);
+  const experiences = getExperiences(locale);
+  const t = uiStrings[locale];
 
   const toggleExpand = (index: number) => {
     setExpandedItems((prev) =>
@@ -45,7 +69,9 @@ export function ExperienceTimeline() {
                   onClick={() => toggleExpand(index)}
                   className="text-muted-foreground hover:text-foreground hover:bg-background/50 cursor-pointer rounded-full p-1 transition-colors"
                   aria-expanded={isExpanded(index)}
-                  aria-label={isExpanded(index) ? "Zwiń" : "Rozwiń"}
+                  aria-label={
+                    isExpanded(index) ? t.collapse : t.expand
+                  }
                 >
                   {isExpanded(index) ? (
                     <ChevronUp className="h-5 w-5" />
@@ -74,7 +100,7 @@ export function ExperienceTimeline() {
 
                   {exp.technologies && exp.technologies.length > 0 && (
                     <div>
-                      <h4 className="mb-2 font-medium">Technologie</h4>
+                      <h4 className="mb-2 font-medium">{t.technologies}</h4>
                       <div className="flex flex-wrap gap-2">
                         {exp.technologies.map((tech) => {
                           const skillInfo = findSkillIcon(tech);
@@ -100,11 +126,15 @@ export function ExperienceTimeline() {
                   )}
 
                   <div>
-                    <h4 className="mb-2 font-medium">Zakres obowiązków</h4>
+                    <h4 className="mb-2 font-medium">
+                      {t.responsibilities}
+                    </h4>
                     <ul className="text-muted-foreground list-inside list-disc space-y-1">
-                      {exp.responsibilities.map((responsibility, respIndex) => (
-                        <li key={respIndex}>{responsibility}</li>
-                      ))}
+                      {exp.responsibilities.map(
+                        (responsibility, respIndex) => (
+                          <li key={respIndex}>{responsibility}</li>
+                        ),
+                      )}
                     </ul>
                   </div>
                 </div>

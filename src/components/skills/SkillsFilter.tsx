@@ -1,27 +1,29 @@
 import { useState } from "react";
-import { SkillCategory } from "@/data/skills";
+import { SkillCategory } from "@/lib/skills";
 import { Button } from "@/components/ui/button";
-import { skillCategoryConfig } from "@/data/category-config";
+import { getSkillCategoryConfig } from "@/i18n";
 
 interface SkillsFilterProps {
   onFilterChange: (filter: SkillCategory) => void;
+  locale: "en" | "pl";
 }
 
-export function SkillsFilter({ onFilterChange }: SkillsFilterProps) {
+export function SkillsFilter({ onFilterChange, locale }: SkillsFilterProps) {
   const [activeFilter, setActiveFilter] = useState(SkillCategory.ALL);
+  const skillCategoryConfig = getSkillCategoryConfig(locale);
 
   const handleFilterClick = (filterValue: SkillCategory) => {
     setActiveFilter(filterValue);
     onFilterChange(filterValue);
   };
 
-  const filters = Object.entries(skillCategoryConfig).map(
-    ([value, config]) => ({
+  const filters = Object.entries(skillCategoryConfig)
+    .filter(([, config]) => config !== undefined)
+    .map(([value, config]) => ({
       value: value as SkillCategory,
-      name: config.name,
-      icon: config.icon,
-    }),
-  );
+      name: config!.name,
+      icon: config!.icon,
+    }));
 
   return (
     <div className="mb-8 flex flex-wrap gap-2">

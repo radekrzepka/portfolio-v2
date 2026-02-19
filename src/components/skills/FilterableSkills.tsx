@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { SkillsFilter } from "./SkillsFilter";
-import { skills, SkillCategory } from "@/data/skills";
+import { skills, SkillCategory } from "@/lib/skills";
 
-export function FilterableSkills() {
+interface FilterableSkillsProps {
+  locale: "en" | "pl";
+}
+
+export function FilterableSkills({ locale }: FilterableSkillsProps) {
   const [activeFilter, setActiveFilter] = useState(SkillCategory.ALL);
 
   const filteredSkills = skills.filter(
@@ -15,7 +19,7 @@ export function FilterableSkills() {
 
   return (
     <div>
-      <SkillsFilter onFilterChange={setActiveFilter} />
+      <SkillsFilter onFilterChange={setActiveFilter} locale={locale} />
 
       <div className="mt-8 grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
         {filteredSkills.map((skill) => {

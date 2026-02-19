@@ -1,15 +1,22 @@
 ---
 import { ArrowRight } from "lucide-react";
-
+import { getRelativeLocaleUrl } from "astro:i18n";
 import SectionContainer from "@/layouts/SectionContainer.astro";
-
 import { Button } from "../ui/button";
 import SkillIcons from "./SkillIcons.astro";
+import { useTranslations } from "@/i18n";
+
+interface Props {
+  locale: "en" | "pl";
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
 ---
 
 <SectionContainer>
   <h2 class="text-3xl font-bold tracking-tighter mb-6">
-    Preferowane technologie
+    {t("skills.title")}
   </h2>
   <div
     class="bg-background rounded-xl p-6 shadow-lg dark:bg-zinc-900 dark:border dark:border-zinc-800"
@@ -17,9 +24,9 @@ import SkillIcons from "./SkillIcons.astro";
     <SkillIcons />
 
     <div class="flex justify-center mt-8">
-      <a href="/skills">
+      <a href={getRelativeLocaleUrl(locale, "skills")}>
         <Button variant="outline" size="lg">
-          Zobacz wszystkie umiejętności <ArrowRight className="ml-2 h-4 w-4" />
+          {t("skills.viewAll")} <ArrowRight className="ml-2 h-4 w-4" />
         </Button>
       </a>
     </div>

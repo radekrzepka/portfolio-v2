@@ -1,16 +1,23 @@
-import type { Project } from "@/data/projects";
-import { skills } from "@/data/skills";
+import type { Project } from "@/i18n";
+import { skills } from "@/lib/skills";
 import type { IconType } from "react-icons";
 import { Hammer } from "lucide-react";
+
+const inProgressLabel: Record<"en" | "pl", string> = {
+  en: "In progress",
+  pl: "W trakcie",
+};
 
 interface ProjectCardContentProps {
   project: Project;
   onClick: () => void;
+  locale?: "en" | "pl";
 }
 
 export function ProjectCardContent({
   project,
   onClick,
+  locale = "en",
 }: ProjectCardContentProps) {
   const findSkillIcon = (techName: string) => {
     const skill = skills.find(
@@ -37,7 +44,8 @@ export function ProjectCardContent({
         />
         {project.isInProgress && (
           <div className="absolute top-2 right-2 flex items-center gap-1 rounded-md bg-amber-500/90 px-2 py-1 text-xs font-medium text-white shadow-md backdrop-blur-sm">
-            <Hammer className="h-3 w-3" />W trakcie
+            <Hammer className="h-3 w-3" />
+            {inProgressLabel[locale]}
           </div>
         )}
       </div>
@@ -47,7 +55,7 @@ export function ProjectCardContent({
           {project.description}
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
-          {project.technologies.slice(0, 3).map((tech, index) => {
+          {project.technologies.slice(0, 3).map((tech: string, index: number) => {
             const skillInfo = findSkillIcon(tech);
             const IconComponent = skillInfo?.icon;
 

@@ -9,6 +9,11 @@ import icon from "astro-icon";
 // https://astro.build/config
 export default defineConfig({
   site: "https://radoslawrzepka.me",
+  i18n: {
+    locales: ["en", "pl"],
+    defaultLocale: "en",
+    routing: { prefixDefaultLocale: false },
+  },
   integrations: [sitemap(), react(), icon()],
   output: "static",
   vite: {

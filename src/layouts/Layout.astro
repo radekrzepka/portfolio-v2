@@ -1,34 +1,65 @@
 ---
 import Analytics from "@vercel/analytics/astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
+import { getAbsoluteLocaleUrl } from "astro:i18n";
 
 import Navigation from "@/components/navigation/Navigation.astro";
 import Footer from "@/layouts/Footer.astro";
+import { useTranslations } from "@/i18n";
 
 import "./../styles/global.css";
 
 interface Props {
   title: string;
   description?: string;
+  locale: "en" | "pl";
 }
 
 const {
   title,
-  description = "Full-stack developer specjalizujący się w Next.js, React, TypeScript, AWS i Nest.js.",
+  description,
+  locale = "en",
 } = Astro.props;
+
+const t = useTranslations(locale);
+const defaultDescription = t("footer.tagline");
+const resolvedDescription = description ?? defaultDescription;
+const currentPath = Astro.url.pathname.replace(/^\/pl\/?/, "") || "";
+const enUrl = getAbsoluteLocaleUrl("en", currentPath);
+const plUrl = getAbsoluteLocaleUrl("pl", currentPath);
 ---
 
 <!doctype html>
-<html lang="pl" class="h-full">
+<html lang={locale} class="h-full">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
+    <meta name="description" content={resolvedDescription} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="pl" href={plUrl} />
     <Analytics />
     <SpeedInsights />
+
+    <script is:inline>
+      (function () {
+        if (typeof window === "undefined") return;
+        const path = window.location.pathname;
+        const isPl = path.startsWith("/pl");
+        const stored = localStorage.getItem("locale");
+        if (stored) {
+          if (stored === "pl" && !isPl)
+            window.location.replace("/pl" + path);
+          if (stored === "en" && isPl)
+            window.location.replace(path.replace("/pl", "") || "/");
+          return;
+        }
+        const pref = navigator.language.startsWith("pl") ? "pl" : "en";
+        if (pref === "pl" && !isPl) window.location.replace("/pl" + path);
+      })();
+    </script>
 
     <script is:inline>
       const getThemePreference = () => {
@@ -59,11 +90,11 @@ const {
     </script>
   </head>
   <body class="flex flex-col min-h-screen">
-    <Navigation />
+    <Navigation locale={locale} />
     <main class="flex-grow">
       <slot />
     </main>
-    <Footer />
+    <Footer locale={locale} />
     <style is:global>
       html,
       body {
