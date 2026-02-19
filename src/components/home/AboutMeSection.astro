@@ -1,6 +1,9 @@
 ---
 import SectionContainer from "@/layouts/SectionContainer.astro";
-import { COMMERCIAL_START_YEAR } from "@/lib/experience";
+import {
+  COMMERCIAL_EXPERIENCE_YEARS,
+  LEARNING_EXPERIENCE_YEARS,
+} from "@/lib/experience";
 import { useTranslations } from "@/i18n";
 
 interface Props {
@@ -15,7 +18,10 @@ const t = useTranslations(locale);
   <h2 class="text-3xl font-bold tracking-tighter mb-6">{t("about.title")}</h2>
   <div class="space-y-4 text-muted-foreground">
     <p>
-      {t("about.paragraph1", { year: String(COMMERCIAL_START_YEAR) })}
+      {t("about.paragraph1", {
+        commercialYears: String(COMMERCIAL_EXPERIENCE_YEARS),
+        learningYears: String(LEARNING_EXPERIENCE_YEARS),
+      })}
     </p>
     <p>
       {t("about.paragraph2")}
