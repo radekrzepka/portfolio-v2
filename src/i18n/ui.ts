@@ -11,12 +11,12 @@ export const ui = {
     "nav.contact": "Contact",
     "hero.greeting": "Hi, I'm",
     "hero.intro":
-      "I'm a full-stack engineer with {commercialYears} years of commercial experience and {learningYears} years of programming. I work daily with React, Next.js, TypeScript, and Node.js, building solutions that combine functionality with a great user experience. Currently building Reduko, a SaaS for tutors, as founder and lead developer.",
+      "I'm a full-stack engineer with {commercialYears} years of commercial experience. I work daily with React, Next.js, TypeScript, and Node.js, building solutions that combine functionality with a great user experience. Currently building Reduko, a SaaS for tutors, as founder and lead developer.",
     "hero.projects": "View my projects",
     "hero.contact": "Get in touch",
     "about.title": "About me",
     "about.paragraph1":
-      "I'm a full-stack engineer with {commercialYears} years of commercial experience and {learningYears} years of programming. I work daily with React, Next.js, TypeScript, and Node.js, building solutions that combine functionality with a great user experience.",
+      "I'm a full-stack engineer with {commercialYears} years of commercial experience. I work daily with React, Next.js, TypeScript, and Node.js, building solutions that combine functionality with a great user experience.",
     "about.paragraph2":
       "Currently building Reduko, a SaaS for tutors, as founder and lead developer. Focused on distributed systems, serverless architecture, and TypeScript.",
     "about.paragraph3":
@@ -83,12 +83,12 @@ export const ui = {
     "nav.contact": "Kontakt",
     "hero.greeting": "Cześć, jestem",
     "hero.intro":
-      "Jestem full-stack engineerem z {commercialYears}-letnim doświadczeniem komercyjnym i {learningYears} latami programowania. Na co dzień pracuję z React, Next.js, TypeScript i Node.js, tworząc rozwiązania, które łączą funkcjonalność z dobrym doświadczeniem użytkownika. Obecnie buduję Reduko, SaaS dla korepetytorów, jako founder i lead developer.",
+      "Jestem full-stack engineerem z {commercialYears}-letnim doświadczeniem komercyjnym. Na co dzień pracuję z React, Next.js, TypeScript i Node.js, tworząc rozwiązania, które łączą funkcjonalność z dobrym doświadczeniem użytkownika. Obecnie buduję Reduko, SaaS dla korepetytorów, jako founder i lead developer.",
     "hero.projects": "Zobacz moje projekty",
     "hero.contact": "Skontaktuj się",
     "about.title": "O mnie",
     "about.paragraph1":
-      "Jestem full-stack engineerem z {commercialYears}-letnim doświadczeniem komercyjnym i {learningYears} latami programowania. Na co dzień pracuję z React, Next.js, TypeScript i Node.js, tworząc rozwiązania, które łączą funkcjonalność z dobrym doświadczeniem użytkownika.",
+      "Jestem full-stack engineerem z {commercialYears}-letnim doświadczeniem komercyjnym. Na co dzień pracuję z React, Next.js, TypeScript i Node.js, tworząc rozwiązania, które łączą funkcjonalność z dobrym doświadczeniem użytkownika.",
     "about.paragraph2":
       "Obecnie buduję Reduko, SaaS dla korepetytorów, jako founder i lead developer. Skupiam się na systemach rozproszonych, architekturze serverless i TypeScript.",
     "about.paragraph3":
