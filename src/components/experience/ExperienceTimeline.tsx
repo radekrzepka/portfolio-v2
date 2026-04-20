@@ -125,18 +125,20 @@ export function ExperienceTimeline({ locale }: ExperienceTimelineProps) {
                     </div>
                   )}
 
-                  <div>
-                    <h4 className="mb-2 font-medium">
-                      {t.responsibilities}
-                    </h4>
-                    <ul className="text-muted-foreground list-inside list-disc space-y-1">
-                      {exp.responsibilities.map(
-                        (responsibility, respIndex) => (
-                          <li key={respIndex}>{responsibility}</li>
-                        ),
-                      )}
-                    </ul>
-                  </div>
+                  {exp.responsibilities.length > 0 && (
+                    <div>
+                      <h4 className="mb-2 font-medium">
+                        {t.responsibilities}
+                      </h4>
+                      <ul className="text-muted-foreground list-inside list-disc space-y-1">
+                        {exp.responsibilities.map(
+                          (responsibility, respIndex) => (
+                            <li key={respIndex}>{responsibility}</li>
+                          ),
+                        )}
+                      </ul>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

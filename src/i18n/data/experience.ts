@@ -12,9 +12,24 @@ export interface Experience {
 const experiencesData: Record<Locale, Experience[]> = {
   en: [
     {
+      title: "Node.js Developer",
+      company: "The Software House",
+      period: "March 2026 - Present",
+      description: "Developing an internal full-stack application.",
+      technologies: [
+        "Node.js",
+        "TypeScript",
+        "React",
+        "AWS",
+        "Express.js",
+        "PostgreSQL",
+      ],
+      responsibilities: [],
+    },
+    {
       title: "Fullstack Developer",
       company: "Devopsbay",
-      period: "September 2025 - Present",
+      period: "September 2025 - March 2026",
       description:
         "Worked on migrating services from monolithic to distributed cloud architecture on AWS. Developed new APIs and integrations using serverless technologies.",
       technologies: [
@@ -75,21 +90,6 @@ const experiencesData: Record<Locale, Experience[]> = {
       ],
     },
     {
-      title: "Math tutor",
-      company: "Self-employed",
-      period: "2019 - Present",
-      description:
-        "Conducted individual mathematics lessons for elementary and high school students. Prepared students for eighth-grade and matriculation exams.",
-      responsibilities: [
-        "Conducting individual mathematics lessons tailored to student needs and level",
-        "Preparing students for eighth-grade exam and mathematics matriculation exam",
-        "Developing personalized teaching materials and exercises for individual student needs",
-        "Diagnosing learning difficulties and adapting teaching methods to student learning style",
-        "Regularly monitoring student progress and providing constructive feedback",
-        "Building student motivation and confidence in mathematical skills",
-      ],
-    },
-    {
       title: "IT support",
       company: "Fizjofit",
       period: "June 2020 - July 2025",
@@ -105,12 +105,42 @@ const experiencesData: Record<Locale, Experience[]> = {
         "Updating and maintaining information systems",
       ],
     },
+    {
+      title: "Math tutor",
+      company: "Self-employed",
+      period: "2019 - 2026",
+      description:
+        "Conducted individual mathematics lessons for elementary and high school students. Prepared students for eighth-grade and matriculation exams.",
+      responsibilities: [
+        "Conducting individual mathematics lessons tailored to student needs and level",
+        "Preparing students for eighth-grade exam and mathematics matriculation exam",
+        "Developing personalized teaching materials and exercises for individual student needs",
+        "Diagnosing learning difficulties and adapting teaching methods to student learning style",
+        "Regularly monitoring student progress and providing constructive feedback",
+        "Building student motivation and confidence in mathematical skills",
+      ],
+    },
   ],
   pl: [
     {
+      title: "Node.js Developer",
+      company: "The Software House",
+      period: "Marzec 2026 - Obecnie",
+      description: "Rozwój wewnętrznej aplikacji full-stack.",
+      technologies: [
+        "Node.js",
+        "TypeScript",
+        "React",
+        "AWS",
+        "Express.js",
+        "PostgreSQL",
+      ],
+      responsibilities: [],
+    },
+    {
       title: "Fullstack Developer",
       company: "Devopsbay",
-      period: "Wrzesień 2025 - Obecnie",
+      period: "Wrzesień 2025 - Marzec 2026",
       description:
         "Realizowałem migrację serwisów z architektury monolitycznej do rozproszonej w chmurze AWS. Rozwijałem nowe API i integracje z wykorzystaniem technologii serverless.",
       technologies: [
@@ -171,21 +201,6 @@ const experiencesData: Record<Locale, Experience[]> = {
       ],
     },
     {
-      title: "Korepetytor matematyki",
-      company: "Działalność własna",
-      period: "2019 - Obecnie",
-      description:
-        "Prowadziłem indywidualne zajęcia z matematyki dla uczniów szkół podstawowych i średnich. Przygotowywałem uczniów do egzaminów ósmoklasisty i maturalnych.",
-      responsibilities: [
-        "Prowadzenie indywidualnych zajęć z matematyki dostosowanych do potrzeb i poziomu ucznia",
-        "Przygotowanie uczniów do egzaminu ósmoklasisty i egzaminu maturalnego z matematyki",
-        "Opracowanie spersonalizowanych materiałów dydaktycznych i zadań dostosowanych do indywidualnych potrzeb uczniów",
-        "Diagnozowanie trudności w nauce i dostosowywanie metod nauczania do stylu uczenia się ucznia",
-        "Regularne monitorowanie postępów uczniów i udzielanie konstruktywnej informacji zwrotnej",
-        "Budowanie motywacji i pewności siebie uczniów w zakresie umiejętności matematycznych",
-      ],
-    },
-    {
       title: "Wsparcie informatyczne",
       company: "Fizjofit",
       period: "Czerwiec 2020 - Lipiec 2025",
@@ -199,6 +214,21 @@ const experiencesData: Record<Locale, Experience[]> = {
         "Optymalizacja procesów pracy poprzez wdrażanie rozwiązań informatycznych",
         "Bieżące wsparcie techniczne dla pracowników firmy",
         "Aktualizacja i utrzymanie systemów informatycznych",
+      ],
+    },
+    {
+      title: "Korepetytor matematyki",
+      company: "Działalność własna",
+      period: "2019 - 2026",
+      description:
+        "Prowadziłem indywidualne zajęcia z matematyki dla uczniów szkół podstawowych i średnich. Przygotowywałem uczniów do egzaminów ósmoklasisty i maturalnych.",
+      responsibilities: [
+        "Prowadzenie indywidualnych zajęć z matematyki dostosowanych do potrzeb i poziomu ucznia",
+        "Przygotowanie uczniów do egzaminu ósmoklasisty i egzaminu maturalnego z matematyki",
+        "Opracowanie spersonalizowanych materiałów dydaktycznych i zadań dostosowanych do indywidualnych potrzeb uczniów",
+        "Diagnozowanie trudności w nauce i dostosowywanie metod nauczania do stylu uczenia się ucznia",
+        "Regularne monitorowanie postępów uczniów i udzielanie konstruktywnej informacji zwrotnej",
+        "Budowanie motywacji i pewności siebie uczniów w zakresie umiejętności matematycznych",
       ],
     },
   ],
